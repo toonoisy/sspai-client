@@ -1,0 +1,79 @@
+{
+  "id": "2110926",
+  "name": "sspai-client",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10983419",
+      "name": "WIFI",
+      "font_class": "WIFI",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "189070",
+      "name": "weibo",
+      "font_class": "weibo",
+      "unicode": "e76c",
+      "unicode_decimal": 59244
+    },
+    {
+      "icon_id": "730291",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "5477553",
+      "name": "dingding",
+      "font_class": "dingding",
+      "unicode": "e6e3",
+      "unicode_decimal": 59107
+    },
+    {
+      "icon_id": "5282643",
+      "name": "fly",
+      "font_class": "fly",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "7506156",
+      "name": "store",
+      "font_class": "store",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "8632851",
+      "name": "付费",
+      "font_class": "fufei",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "10158581",
+      "name": "星",
+      "font_class": "xing",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "11193100",
+      "name": "M",
+      "font_class": "M",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "3195250",
+      "name": "π",
+      "font_class": "icon-test",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    }
+  ]
+}
