@@ -1,5 +1,12 @@
+import Matrix from "@/pages/Matrix";
+
 export default [
   {
-    path: '',
+    path: "/matrix",
+    component: Matrix
   },
-]
+  {
+    path: "/",
+    redirect: '/matrix'
+  }
+];
