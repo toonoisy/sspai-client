@@ -1,12 +1,13 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
+import matrix from "./matrix";
 
-const state = {}
-const mutations = {}
-const actions = {}
-const getters = {}
+const state = {};
+const mutations = {};
+const actions = {};
+const getters = {};
 
 export default new Vuex.Store({
   state,
@@ -14,6 +15,6 @@ export default new Vuex.Store({
   actions,
   getters,
   modules: {
-    
-  }
-})
+    matrix,
+  },
+});
