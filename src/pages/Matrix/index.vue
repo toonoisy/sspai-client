@@ -544,6 +544,7 @@
                   </a>
                 </li>
               </ul>
+              <a class="moreButton" href="">查看全部 ></a>
             </div>
           </div>
         </div>
@@ -849,7 +850,14 @@ export default {
           padding: 0 24px;
           margin-top: 40px;
           flex: 0;
-
+          .moreButton {
+            cursor: pointer;
+            font-size: 12px;
+            color: #655e5e;
+            width: 92px;
+            margin: auto;
+            display: block;
+          }
           .yipai {
             color: #292525;
             padding: 24px 28px 28px;
@@ -913,14 +921,6 @@ export default {
                   height: 24px;
                   margin: 0 4px 0 20px;
                 }
-              }
-              .moreButton {
-                cursor: pointer;
-                font-size: 12px;
-                color: #655e5e;
-                width: 92px;
-                margin: auto;
-                display: block;
               }
             }
           }
