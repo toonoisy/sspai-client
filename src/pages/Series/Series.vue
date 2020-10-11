@@ -2,57 +2,41 @@
   <div class="series">
     <div class="series-wrapper">
       <div class="series-banner clearFix">
-        <div class="swiper-container" ref="seriesSwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <a href="javascript:;">
-                <img src="../../../public/images/banner01.jpg" alt="" />
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="javascript:;">
-                <img src="../../../public/images/banner02.jpg" alt="" />
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="javascript:;">
-                <img src="../../../public/images/banner03.jpg" alt="" />
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="javascript:;">
-                <img src="../../../public/images/banner04.jpg" alt="" />
-              </a>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-          <!-- 导航按钮 -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
+        <Carousel :bannerList="bannerList" :CDN="CDN"></Carousel>
         <div class="recommend-container">
-          <div class="recommend">今日推荐</div>
-          <div class="recommend-title">擦亮互联网与现实世界的「窗户」</div>
-          <div class="recommend-content">
-            不同的「窗」是否清晰、颜色是否准确、对我们的眼睛是否友好等差异，很大程度上决定了我们看到网络世界的样子。
-            这就是为什么我们需要好的显示器。
-          </div>
-          <div class="recommend-ref">
-            出自栏目：
-            <router-link to="/series" class="link">显示器完全指南</router-link
-            ><i></i>
-          </div>
+          <a
+            :href="recommendList[idx] ? recommendList[idx].url : `#`"
+            target="_blank"
+          >
+            <div class="recommend">
+              {{ recommendList[idx] ? recommendList[idx].title_prefix : "" }}
+            </div>
+            <div class="recommend-title">
+              {{ recommendList[idx] ? recommendList[idx].title : "" }}
+            </div>
+            <div class="recommend-content">
+              {{ recommendList[idx] ? recommendList[idx].description : "" }}
+            </div>
+            <div class="recommend-ref">
+              出自栏目：
+              <span class="link">{{
+                recommendList[idx] ? recommendList[idx].series.title : ""
+              }}</span>
+            </div>
+          </a>
         </div>
       </div>
-      <div class="series-columns">
+      <div class="series-columns-wrapper">
         <div class="series-columns-header">
           <div class="tabs">
             <a
-              :class="['all', { active: isShowSeriesColumn }]"
+              :class="['all', { active: $route.fullPath === '/series' }]"
               @click="showSeriesColumn"
               >全部分类</a
             >
-            <a :class="['my', { active: !isShowSeriesColumn }]" @click="showMy"
+            <a
+              :class="['my', { active: $route.fullPath === '/series/my' }]"
+              @click="showMy"
               >我的订阅</a
             >
           </div>
@@ -63,95 +47,38 @@
             size="mini"
           ></el-input>
         </div>
-        <div class="series-column" v-show="isShowSeriesColumn">
-          <div class="title">最新上架</div>
-          <div class="item-wrapper">
-            <div class="item">
-              <div class="content-wrapper">
-                <router-link to="/series">
-                  <img src="../../../public/images/1.png" alt="" />
-                  <div class="hover-card">
-                    <div class="hover-card-title">Python 自学手册</div>
-                    <div class="hover-card-content">
-                      从零开始教程掌握 Python 编程技巧。
-                    </div>
-                    <div class="hover-card-footer">
-                      <div class="hover-card-price">￥<span>39.90</span></div>
-                      <div class="hover-card-trial">免费阅读 2 章</div>
-                    </div>
-                  </div>
-                </router-link>
-              </div>
+        <div class="series-columns" v-show="$route.fullPath === '/series'">
+          <Column
+            :list="latestList"
+            :CDN="CDN"
+            :to="to"
+            :categories="categories[0]"
+          ></Column>
+          <div class="column">
+            <div class="title">
+              {{ categories[1] }}
             </div>
-            <div class="item">
-              <div class="content-wrapper">
-                <router-link to="/series">
-                  <img src="../../../public/images/1.png" alt="" />
-                  <div class="hover-card">
-                    <div class="hover-card-title">Python 自学手册</div>
-                    <div class="hover-card-content">
-                      从零开始教程掌握 Python 编程技巧。
-                    </div>
-                    <div class="hover-card-footer">
-                      <div class="hover-card-price">￥<span>39.90</span></div>
-                      <div class="hover-card-trial">免费阅读 2 章</div>
-                    </div>
+            <div class="item-wrapper">
+              <div class="item" v-for="trial in trialList" :key="trial.id">
+                <router-link :to="to">
+                  <div class="content-wrapper">
+                    <img :src="`${CDN}${trial.article.banner}`" alt="" />
                   </div>
-                </router-link>
-              </div>
-            </div>
-            <div class="item">
-              <div class="content-wrapper">
-                <router-link to="/series">
-                  <img src="../../../public/images/1.png" alt="" />
-                  <div class="hover-card">
-                    <div class="hover-card-title">Python 自学手册</div>
-                    <div class="hover-card-content">
-                      从零开始教程掌握 Python 编程技巧。
-                    </div>
-                    <div class="hover-card-footer">
-                      <div class="hover-card-price">￥<span>39.90</span></div>
-                      <div class="hover-card-trial">免费阅读 2 章</div>
-                    </div>
-                  </div>
-                </router-link>
-              </div>
-            </div>
-            <div class="item">
-              <div class="content-wrapper">
-                <router-link to="/series">
-                  <img src="../../../public/images/1.png" alt="" />
-                  <div class="hover-card">
-                    <div class="hover-card-title">Python 自学手册</div>
-                    <div class="hover-card-content">
-                      从零开始教程掌握 Python 编程技巧。
-                    </div>
-                    <div class="hover-card-footer">
-                      <div class="hover-card-price">￥<span>39.90</span></div>
-                      <div class="hover-card-trial">免费阅读 2 章</div>
-                    </div>
-                  </div>
-                </router-link>
-              </div>
-            </div>
-            <div class="item">
-              <div class="content-wrapper">
-                <router-link to="/series">
-                  <img src="../../../public/images/1.png" alt="" />
-                  <div class="hover-card">
-                    <div class="hover-card-title">Python 自学手册</div>
-                    <div class="hover-card-content">
-                      从零开始教程掌握 Python 编程技巧。
-                    </div>
-                    <div class="hover-card-footer">
-                      <div class="hover-card-price">￥<span>39.90</span></div>
-                      <div class="hover-card-trial">免费阅读 2 章</div>
-                    </div>
+                  <div class="info-wrapper">
+                    <span>{{trial.series.title}}</span>
+                    <h4>{{trial.article.title}}</h4>
                   </div>
                 </router-link>
               </div>
             </div>
           </div>
+          <Column
+            v-for="category in categoriesList"
+            :key="category.id"
+            :list="category"
+            :CDN="CDN"
+            :to="to"
+          ></Column>
         </div>
         <router-view></router-view>
       </div>
@@ -160,23 +87,70 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+import Carousel from "@/components/Carousel/Carousel";
+import Column from "@/components/Column/Column";
 export default {
   name: "Series",
   data() {
     return {
+      // isShowSeriesColumn: true, // 改用 this.$route.fullPath 判断显示隐藏了
+      CDN: "https://cdn.sspai.com/",
+      idx: "",
       keyword: "Power+",
-      isShowSeriesColumn: true,
+      to: "/series",
+      categories: ["最新上架", "精选试读"],
     };
   },
+  created() {
+    this.changeIndex();
+  },
+  mounted() {
+    this.getBannerList();
+    this.getRecommendList();
+    this.getLatestList();
+    this.getTrialList();
+    this.getCategoriesList();
+  },
   methods: {
+    changeIndex() {
+      this.idx = Math.floor(Math.random() * (3 + 1)); // 生成一个0-3的随机数
+    },
     showSeriesColumn() {
       this.$router.push("/series");
-      this.isShowSeriesColumn = true;
     },
     showMy() {
       this.$router.push("/series/my");
-      this.isShowSeriesColumn = false;
+      // console.log(this.$route);
     },
+    getBannerList() {
+      this.$store.dispatch("getBannerList");
+    },
+    getRecommendList() {
+      this.$store.dispatch("getRecommendList");
+    },
+    getLatestList() {
+      this.$store.dispatch("getLatestList");
+    },
+    getTrialList() {
+      this.$store.dispatch("getTrialList");
+    },
+    getCategoriesList() {
+      this.$store.dispatch("getCategoriesList");
+    },
+  },
+  computed: {
+    ...mapState({
+      bannerList: (state) => state.series.bannerList,
+      recommendList: (state) => state.series.recommendList,
+      latestList: (state) => state.series.latestList,
+      trialList: (state) => state.series.trialList,
+      categoriesList: (state) => state.series.categoriesList,
+    }),
+  },
+  components: {
+    Carousel,
+    Column,
   },
 };
 </script>
@@ -197,7 +171,7 @@ export default {
       height: 324px;
       float: left;
     }
-    .swiper-container img {
+    /deep/ .swiper-container img {
       width: 100%;
       height: 100%;
     }
@@ -213,6 +187,7 @@ export default {
       .recommend-title {
         font-size: 18px;
         padding: 15px 0;
+        color: #292525;
       }
       .recommend-content {
         color: #8e8787;
@@ -225,17 +200,23 @@ export default {
         color: #8e8787;
         .link {
           color: #292525;
+          &:hover {
+            color: #fd281a;
+          }
         }
       }
     }
   }
 }
-.series-columns {
+.series-columns-wrapper {
   .series-columns-header {
     display: flex;
     justify-content: space-between;
     padding: 40px 0;
     .tabs {
+      a {
+        cursor: pointer;
+      }
       font-size: 16px;
       .all {
         margin-right: 40px;
@@ -266,60 +247,42 @@ export default {
       color: #8e8787;
     }
   }
-  .series-column {
-    background: #fff;
-    padding: 30px;
-    .title {
-      font-size: 20px;
-      color: #292525;
-      padding-bottom: 30px;
-    }
-    .item-wrapper {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 5px;
-      .item {
-        .content-wrapper {
-          position: relative;
+  .series-columns {
+    .column {
+      background: #fff;
+      padding: 30px 15px 20px 30px;
+      margin-bottom: 15px;
+      .title {
+        font-size: 20px;
+        color: #292525;
+        padding-bottom: 30px;
+      }
+      .item-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 5px;
+        .item {
           width: 197px;
-          height: 262px;
-          border-radius: 10px;
-          overflow: hidden;
-          img {
-            width: 100%;
-            height: 100%;
+          margin-right: 15px;
+          .content-wrapper {
+            margin-bottom: 8px;
+            img {
+              width: 197px;
+              height: 98px;
+              border-radius: 4px;
+            }
           }
-          .hover-card {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            color: #fff;
-            padding: 20px 15px 0 15px;
-            box-sizing: border-box;
-            opacity: 0;
-            transition: opacity 0.5s;
-            .hover-card-title {
-              font-size: 18px;
-              margin-bottom: 10px;
+          .info-wrapper {
+            span {
+              font-size: 12px;
             }
-            .hover-card-footer {
-              position: absolute;
-              bottom: 30px;
-              display: flex;
-              width: calc(100% - 30px);
-              justify-content: space-between;
-              align-items: baseline;
-              .hover-card-price {
-                span {
-                  font-size: 22px;
-                }
-              }
-            }
-            &:hover {
-              opacity: 1;
-              transition: opacity 0.5s;
+            h4 {
+              font-size: 14px;
+              font-weight: 400;
+              margin-top: 8px;
+              line-height: 140%;
+              height: 40px;
+              color: #292525;
             }
           }
         }

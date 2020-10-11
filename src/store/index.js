@@ -1,12 +1,13 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
+import series from "./series";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-const state = {}
-const mutations = {}
-const actions = {}
-const getters = {}
+const state = {};
+const mutations = {};
+const actions = {};
+const getters = {};
 
 export default new Vuex.Store({
   state,
@@ -14,6 +15,6 @@ export default new Vuex.Store({
   actions,
   getters,
   modules: {
-    
-  }
-})
+    series,
+  },
+});
