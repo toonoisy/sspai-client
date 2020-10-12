@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import setting from './setting'
+import detail from './detail'
 
 Vue.use(Vuex)
 
@@ -14,6 +16,7 @@ export default new Vuex.Store({
   actions,
   getters,
   modules: {
-    
-  }
+    setting,
+    detail,
+  },
 })

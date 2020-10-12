@@ -22,13 +22,14 @@
           </div>
           <div class="tab-aontainer">
             <a href="javascript:;" class="active">全部</a>
-            <a href="javascript:;">系统优化</a>
-            <a href="javascript:;">影音媒体</a>
-            <a href="javascript:;">效率日程</a>
-            <a href="javascript:;">写作编辑</a>
-            <a href="javascript:;">阅读批注</a>
-            <a href="javascript:;">学术教育</a>
-            <a href="javascript:;">创意工作</a>
+            <a
+              href="javascript:;"
+              v-for="item in switchInfo"
+              :key="item.id"
+              @click="switchs(item)"
+            >
+              {{ item.name }}</a
+            >
           </div>
         </div>
         <div class="tabs-box">
@@ -49,195 +50,38 @@
       </div>
     </div>
     <!--内容区-->
-    <div class="content">
-      <div class="contentItem">
-        <!--图片区-->
-        <div class="itemImg">
-          <div class="itemComtent">
-            <div class="icon-box">
-              <i class="icon"> <img src="./images/苹果.png" alt=""/></i>
-            </div>
-            <!--主题内容区-->
-            <div class="item-container">
-              <div class="img">
-                <img src="./images/x1.png" alt="" />
+    <div
+      v-infinite-scroll="loadMore"
+      infinite-scroll-disabled="busy"
+      infinite-scroll-distance="10"
+    >
+      <div class="content">
+        <div class="contentItem">
+          <!--图片区-->
+          <div class="itemImg">
+            <div
+              class="itemComtent"
+              v-for="cont in contentInfo"
+              :key="cont.id"
+              @click="toDetail(cont)"
+            >
+              <div class="icon-box">
+                <i class="icon"> <img src="./images/苹果.png" alt=""/></i>
               </div>
-              <div class="font">
-                <span>Downie4</span>
-              </div>
-              <div class="font1">
-                <span>支持 1000+ 流媒体网站的视频下载工具</span>
-              </div>
-              <div class="price">
-                <span>￥79</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="itemComtent">
-            <div class="icon-box">
-              <i class="icon"> <img src="./images/苹果.png" alt=""/></i>
-            </div>
-            <!--主题内容区-->
-            <div class="item-container">
-              <div class="img">
-                <img src="./images/x1.png" alt="" />
-              </div>
-              <div class="font">
-                <span>Downie4</span>
-              </div>
-              <div class="font1">
-                <span>支持 1000+ 流媒体网站的视频下载工具</span>
-              </div>
-              <div class="price">
-                <span>￥79</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="itemComtent">
-            <div class="icon-box">
-              <i class="icon"> <img src="./images/苹果.png" alt=""/></i>
-            </div>
-            <!--主题内容区-->
-            <div class="item-container">
-              <div class="img">
-                <img src="./images/x1.png" alt="" />
-              </div>
-              <div class="font">
-                <span>Downie4</span>
-              </div>
-              <div class="font1">
-                <span>支持 1000+ 流媒体网站的视频下载工具</span>
-              </div>
-              <div class="price">
-                <span>￥79</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="itemComtent">
-            <div class="icon-box">
-              <i class="icon"> <img src="./images/苹果.png" alt=""/></i>
-            </div>
-            <!--主题内容区-->
-            <div class="item-container">
-              <div class="img">
-                <img src="./images/x1.png" alt="" />
-              </div>
-              <div class="font">
-                <span>Downie4</span>
-              </div>
-              <div class="font1">
-                <span>支持 1000+ 流媒体网站的视频下载工具</span>
-              </div>
-              <div class="price">
-                <span>￥79</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="itemComtent">
-            <div class="icon-box">
-              <i class="icon"> <img src="./images/苹果.png" alt=""/></i>
-            </div>
-            <!--主题内容区-->
-            <div class="item-container">
-              <div class="img">
-                <img src="./images/x1.png" alt="" />
-              </div>
-              <div class="font">
-                <span>Downie4</span>
-              </div>
-              <div class="font1">
-                <span>支持 1000+ 流媒体网站的视频下载工具</span>
-              </div>
-              <div class="price">
-                <span>￥79</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="itemComtent">
-            <div class="icon-box">
-              <i class="icon"> <img src="./images/苹果.png" alt=""/></i>
-            </div>
-            <!--主题内容区-->
-            <div class="item-container">
-              <div class="img">
-                <img src="./images/x1.png" alt="" />
-              </div>
-              <div class="font">
-                <span>Downie4</span>
-              </div>
-              <div class="font1">
-                <span>支持 1000+ 流媒体网站的视频下载工具</span>
-              </div>
-              <div class="price">
-                <span>￥79</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="itemComtent">
-            <div class="icon-box">
-              <i class="icon"> <img src="./images/苹果.png" alt=""/></i>
-            </div>
-            <!--主题内容区-->
-            <div class="item-container">
-              <div class="img">
-                <img src="./images/x1.png" alt="" />
-              </div>
-              <div class="font">
-                <span>Downie4</span>
-              </div>
-              <div class="font1">
-                <span>支持 1000+ 流媒体网站的视频下载工具</span>
-              </div>
-              <div class="price">
-                <span>￥79</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="itemComtent">
-            <div class="icon-box">
-              <i class="icon"> <img src="./images/苹果.png" alt=""/></i>
-            </div>
-            <!--主题内容区-->
-            <div class="item-container">
-              <div class="img">
-                <img src="./images/x1.png" alt="" />
-              </div>
-              <div class="font">
-                <span>Downie4</span>
-              </div>
-              <div class="font1">
-                <span>支持 1000+ 流媒体网站的视频下载工具</span>
-              </div>
-              <div class="price">
-                <span>￥79</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="itemComtent">
-            <div class="icon-box">
-              <i class="icon"> <img src="./images/苹果.png" alt=""/></i>
-            </div>
-            <!--主题内容区-->
-            <div class="item-container">
-              <div class="img">
-                <img src="./images/x1.png" alt="" />
-              </div>
-              <div class="font">
-                <span>Downie4</span>
-              </div>
-              <div class="font1">
-                <span>支持 1000+ 流媒体网站的视频下载工具</span>
-              </div>
-              <div class="price">
-                <span>￥79</span>
+              <!--主题内容区-->
+              <div class="item-container">
+                <div class="img">
+                  <img :src="`https://cdn.sspai.com/${cont.banner}`" alt="" />
+                </div>
+                <div class="font">
+                  <span>{{ cont.name }}</span>
+                </div>
+                <div class="font1">
+                  <span>{{ cont.summary }}</span>
+                </div>
+                <div class="price">
+                  <span>￥{{ cont.price }}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -249,10 +93,71 @@
 
 <script>
 import HederTop from '@/pages/Pistore/HederTop/index'
+import { mapState } from 'vuex'
 export default {
   name: 'Allcategories',
+  data() {
+    return {
+      busy: false,
+      offset: 0,
+      class_id: 0,
+      currentIndex: 0,
+    }
+  },
   components: {
     HederTop,
+  },
+  mounted() {
+    //定义请求分类列表函数
+    this.getSwitchInfo()
+    //定义请求内容区函数
+    this.getContentInfo()
+  },
+  methods: {
+    //请求分类类表数据
+    getSwitchInfo() {
+      this.$store.dispatch('getswitchInfo')
+    },
+    //请求内容区数据
+    getContentInfo() {
+      this.$store.dispatch('getContentInfo', this.offset)
+    },
+    //跳转详情页
+    toDetail(cont) {
+      // console.log(cont.id)
+      this.$router.push({ path: `/detail?id=${cont.id}` })
+    },
+    //下拉加载更多
+    async loadMore() {
+      //禁用下拉加载刷新
+      this.busy = true
+      this.offset = this.offset + 12
+      if (this.offset === 60) {
+        return
+      }
+      await this.$store.dispatch('getContentInfo', { offset: this.offset })
+      this.busy = false
+    },
+    //获取id
+
+    switchs(item) {
+      this.busy = true
+      // console.log(item.id)
+      let class_id = item.id
+      this.offset = 0
+      console.log(class_id)
+      this.$store.dispatch('getContentInfo', { offset: this.offset, class_id })
+    },
+  },
+  computed: {
+    //分类列表数据
+    ...mapState({
+      switchInfo: (state) => state.setting.switchInfo,
+    }),
+    //内容区数据
+    ...mapState({
+      contentInfo: (state) => state.setting.contentInfo,
+    }),
   },
 }
 </script>
@@ -261,41 +166,6 @@ export default {
   width: 100%;
   height: 100%;
   background-color: #f4f4f4;
-  .piStreContainer {
-    width: 1116px;
-    height: 100%;
-    // background-color: seagreen;
-    margin: 0 auto;
-    text-align: center;
-    .nav {
-      width: 1200px;
-      margin-right: 24px;
-      .navContainer {
-        display: flex;
-        box-sizing: border-box;
-        .navItem {
-          width: 65px;
-          height: 41.6px;
-          margin: 0 30px 0 0;
-          padding: 8px 0;
-          display: inline-block;
-          font-size: 16px;
-          line-height: 41.6px;
-          a {
-            display: inline-block;
-            // color: red;
-          }
-          &.active {
-            a {
-              color: red;
-            }
-            // display: block;
-            border-bottom: 2px solid red;
-          }
-        }
-      }
-    }
-  }
   .select {
     width: 1116px;
     background-color: white;
@@ -321,6 +191,7 @@ export default {
             font-size: 14px;
             color: #655e5e;
             margin-right: 35px;
+            text-decoration: none;
             &.active {
               font-weight: 800;
             }
@@ -378,7 +249,7 @@ export default {
           align-content: center;
           padding-left: 35px;
           .img {
-            margin-top: 30px;
+            margin-top: 20px;
             img {
               width: 80px;
               height: 80px;
@@ -386,9 +257,9 @@ export default {
           }
           .font {
             height: 24px;
-            margin-bottom: 10px;
+            margin-bottom: 40px;
             span {
-              font-size: 20px;
+              font-size: 16px;
               color: #292525;
               line-height: 24px;
               font-weight: 500;
@@ -397,7 +268,7 @@ export default {
           }
           .font1 {
             height: 17px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             span {
               font-size: 12px;
               color: #8e8787;

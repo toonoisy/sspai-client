@@ -2,15 +2,15 @@
   <div class="content">
     <div class="contentItem">
       <div class="title">
-        最受欢迎
+        最新上架
       </div>
       <!--图片区-->
       <div class="itemImg">
         <div
           class="itemComtent"
-          v-for="set in settingInfo"
-          :key="set.id"
-          @click="toDetail(set)"
+          v-for="item in choiceness"
+          :key="item.id"
+          @click="toDetail(item)"
         >
           <div class="icon-box">
             <i class="icon"> <img src="./images/苹果.png" alt=""/></i>
@@ -18,45 +18,46 @@
           <!--主题内容区-->
           <div class="item-container">
             <div class="img">
-              <img :src="`https://cdn.sspai.com/${set.banner}`" alt="" />
+              <img :src="`https://cdn.sspai.com/${item.banner}`" alt="" />
             </div>
             <div class="font">
-              <span>{{ set.name }}</span>
+              <span>{{ item.name }}</span>
             </div>
             <div class="font1">
-              <span>{{ set.summary }}</span>
+              <span>{{ item.summary }}</span>
             </div>
             <div class="price">
-              <span>￥{{ set.price }}</span>
+              <span>￥{{ item.price }}</span>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!--编辑精选-->
 </template>
 
 <script>
 import { mapState } from 'vuex'
 export default {
-  name: 'Content',
+  name: 'Shelf',
+  data() {
+    return {}
+  },
   mounted() {
-    this.getSettingInfo()
+    this.getSelectedInfo()
   },
   methods: {
-    getSettingInfo() {
-      this.$store.dispatch('getSeetingInfo')
+    getSelectedInfo() {
+      this.$store.dispatch('getSelectedInfo')
     },
     //跳转到详情页
-    toDetail(set) {
-      // console.log(set.id)
-      this.$router.push({ path: `/detail?id=${set.id}` })
+    toDetail(item) {
+      this.$router.push({ path: `/detail?id=${item.id}` })
     },
   },
   computed: {
     ...mapState({
-      settingInfo: (state) => state.setting.settingInfo,
+      choiceness: (state) => state.setting.selectedInfo.choiceness || [],
     }),
   },
 }

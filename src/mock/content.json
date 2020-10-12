@@ -1,0 +1,491 @@
+{
+    "error": 0,
+    "data": {
+        "news": [
+            {
+                "id": 193,
+                "name": "阅读记录",
+                "banner": "article/3dc39808-2f30-fc2d-ce04-6682e2a9772e.jpg",
+                "summary": "帮助更多人养成阅读习惯",
+                "support_platforms": [
+                    "iOS",
+                    "Android"
+                ],
+                "price": 6800,
+                "cost_price": 6800,
+                "price_min": 6800,
+                "price_max": 6800
+            },
+            {
+                "id": 192,
+                "name": "Cubox",
+                "banner": "article/7ee94131-ccae-fdbd-ecd5-78382bd92c77.jpg",
+                "summary": "数字化书签管理方案",
+                "support_platforms": [
+                    "iOS",
+                    "macOS",
+                    "Web"
+                ],
+                "price": 5800,
+                "cost_price": 5800,
+                "price_min": 5800,
+                "price_max": 5800
+            },
+            {
+                "id": 191,
+                "name": "捧读",
+                "banner": "article/205a5c1a-0cbe-5e25-bd7d-91c4411202e7.jpg",
+                "summary": "日语语法学习与分析工具",
+                "support_platforms": [
+                    "Android"
+                ],
+                "price": 6800,
+                "cost_price": 6800,
+                "price_min": 6800,
+                "price_max": 6800
+            },
+            {
+                "id": 190,
+                "name": "Affinity Designer",
+                "banner": "article/4d141b86-2f5a-61ec-dde7-01dbbe250ec6.jpg",
+                "summary": "功能强大的矢量图形设计工具，兼容AI",
+                "support_platforms": [
+                    "macOS",
+                    "Windows"
+                ],
+                "price": 29900,
+                "cost_price": 32800,
+                "price_min": 29900,
+                "price_max": 32800
+            },
+            {
+                "id": 189,
+                "name": "可乐记",
+                "banner": "article/847c1d4e-9ec3-e6a3-e5b5-cb841c6ef9b9.jpg",
+                "summary": "轻量级 Android 笔记应用",
+                "support_platforms": [
+                    "Android"
+                ],
+                "price": 3900,
+                "cost_price": 3900,
+                "price_min": 3900,
+                "price_max": 3900
+            },
+            {
+                "id": 187,
+                "name": "WindowTop",
+                "banner": "article/44f9e518-f471-5a06-5b89-22381802dc0e.jpg",
+                "summary": "Windows 窗口功能拓展利器",
+                "support_platforms": [
+                    "Windows"
+                ],
+                "price": 3900,
+                "cost_price": 3900,
+                "price_min": 3900,
+                "price_max": 3900
+            },
+            {
+                "id": 186,
+                "name": "[限时特惠] 简悦 2.0",
+                "banner": "article/5b1a2cd5-a6c8-f04e-1510-1060b5fc8342.jpg",
+                "summary": "阅读模式 + 标注系统 + 稍后读",
+                "support_platforms": [
+                    "Web"
+                ],
+                "price": 1800,
+                "cost_price": 6800,
+                "price_min": 1800,
+                "price_max": 6800
+            },
+            {
+                "id": 185,
+                "name": "专注笔记",
+                "banner": "article/785bc81d-ffcd-e20f-7212-a2fe48b46969.jpg",
+                "summary": "全平台笔记工具",
+                "support_platforms": [
+                    "macOS",
+                    "Windows",
+                    "iOS",
+                    "Android"
+                ],
+                "price": 11800,
+                "cost_price": 11800,
+                "price_min": 11800,
+                "price_max": 11800
+            },
+            {
+                "id": 184,
+                "name": "Wise Data Recovery",
+                "banner": "article/05a79a87-b6fd-8175-3bba-9d8e2bcce479.jpg",
+                "summary": "找回误删除的文档/照片/音乐/视频",
+                "support_platforms": [
+                    "Windows"
+                ],
+                "price": 29300,
+                "cost_price": 63000,
+                "price_min": 29300,
+                "price_max": 63000
+            },
+            {
+                "id": 148,
+                "name": "钱迹",
+                "banner": "article/bc4e9750-4aaf-0f33-6d3e-946122c98da1.jpg",
+                "summary": "无广告/无后台/无理财推销的纯粹记账 App",
+                "support_platforms": [
+                    "Android"
+                ],
+                "price": 600,
+                "cost_price": 600,
+                "price_min": 600,
+                "price_max": 600
+            },
+            {
+                "id": 92,
+                "name": "CCleaner",
+                "banner": "article/1b62ad22-1990-6830-7367-620ebeee8e2b.jpg",
+                "summary": "Windows 系统清理工具",
+                "support_platforms": [
+                    "Windows"
+                ],
+                "price": 18900,
+                "cost_price": 18900,
+                "price_min": 18900,
+                "price_max": 18900
+            },
+            {
+                "id": 85,
+                "name": "Wise Care 365 Pro",
+                "banner": "article/7336733b-9753-f7fb-2f01-1e45b8244b45.jpg",
+                "summary": "Windows 清理工具/系统管家",
+                "support_platforms": [
+                    "Windows"
+                ],
+                "price": 4900,
+                "cost_price": 21000,
+                "price_min": 4900,
+                "price_max": 21000
+            },
+            {
+                "id": 20,
+                "name": "Adguard 广告拦截器",
+                "banner": "article/55d94589-6a16-3dfe-e9e3-7e796b30f788.jpg",
+                "summary": "跨平台广告拦截及隐私保护工具",
+                "support_platforms": [
+                    "macOS",
+                    "Windows",
+                    "iOS",
+                    "Android"
+                ],
+                "price": 4000,
+                "cost_price": 4000,
+                "price_min": 4000,
+                "price_max": 4000
+            }
+        ],
+        "mosts": [
+            {
+                "id": 4,
+                "name": "Downie 4",
+                "banner": "article/a18035ca-e706-7840-67c6-3ffccd64f5f2.jpg",
+                "summary": "支持 1000+ 流媒体网站的视频下载工具",
+                "support_platforms": [
+                    "macOS"
+                ],
+                "price": 7900,
+                "cost_price": 7900,
+                "price_min": 7900,
+                "price_max": 7900
+            },
+            {
+                "id": 13,
+                "name": "MWeb 3",
+                "banner": "article/c08e496a-c477-e7de-4bb6-43f9846f5b1d.jpg",
+                "summary": "全能型 Markdown 写作工具",
+                "support_platforms": [
+                    "macOS"
+                ],
+                "price": 12800,
+                "cost_price": 12800,
+                "price_min": 12800,
+                "price_max": 12800
+            },
+            {
+                "id": 19,
+                "name": "Eagle",
+                "banner": "article/73b7db12-a3aa-b071-9e9e-f824e906ea72.jpg",
+                "summary": "设计师不可错过的素材管理工具",
+                "support_platforms": [],
+                "price": 19900,
+                "cost_price": 19900,
+                "price_min": 19900,
+                "price_max": 19900
+            },
+            {
+                "id": 42,
+                "name": "MarginNote 3",
+                "banner": "article/bd1f01d2-47da-0c96-abc6-57e434c78fa7.jpg",
+                "summary": "重塑你的学习方式",
+                "support_platforms": [
+                    "macOS"
+                ],
+                "price": 28000,
+                "cost_price": 28000,
+                "price_min": 28000,
+                "price_max": 28000
+            },
+            {
+                "id": 65,
+                "name": "Quicker",
+                "banner": "article/13f73c33-ba6d-b9f6-0b89-78261e6ce916.jpg",
+                "summary": " Windows 版快捷指令",
+                "support_platforms": [],
+                "price": 5760,
+                "cost_price": 9600,
+                "price_min": 5760,
+                "price_max": 9600
+            },
+            {
+                "id": 113,
+                "name": "LongWe",
+                "banner": "article/35edccda-13f2-e119-21eb-aaeef72e31ba.jpg",
+                "summary": "macOS 长图写作和分享利器",
+                "support_platforms": [
+                    "macOS"
+                ],
+                "price": 1800,
+                "cost_price": 1800,
+                "price_min": 1800,
+                "price_max": 1800
+            },
+            {
+                "id": 72,
+                "name": "50 音起源",
+                "banner": "article/b2dadb98-27e4-65fb-f968-fea85495e616.jpg",
+                "summary": "巧妙掌握日语五十音单词",
+                "support_platforms": [
+                    "Android"
+                ],
+                "price": 1200,
+                "cost_price": 1200,
+                "price_min": 1200,
+                "price_max": 1200
+            },
+            {
+                "id": 64,
+                "name": "MoneyWiz 3",
+                "banner": "article/7b506120-2d5b-efd9-79e0-132eefc854b2.jpg",
+                "summary": "让记账过程更清晰、记账系统更完整",
+                "support_platforms": [
+                    "macOS",
+                    "Windows",
+                    "iOS",
+                    "Android"
+                ],
+                "price": 16900,
+                "cost_price": 24800,
+                "price_min": 16900,
+                "price_max": 24800
+            },
+            {
+                "id": 77,
+                "name": "One Switch",
+                "banner": "article/5533e08d-d2bb-4bdf-a68e-0310b0c12137.jpg",
+                "summary": "Mac 菜单栏快捷切换工具",
+                "support_platforms": [
+                    "macOS"
+                ],
+                "price": 3000,
+                "cost_price": 3000,
+                "price_min": 3000,
+                "price_max": 3000
+            },
+            {
+                "id": 25,
+                "name": "Microsoft 365",
+                "banner": "article/192bcfa7-1eb6-6400-ecc5-47848cebfd35.jpg",
+                "summary": "根据需要随时随地使用 Office",
+                "support_platforms": [
+                    "macOS",
+                    "Windows",
+                    "iOS",
+                    "Android"
+                ],
+                "price": 29900,
+                "cost_price": 39800,
+                "price_min": 29900,
+                "price_max": 39800
+            },
+            {
+                "id": 111,
+                "name": "潮汐",
+                "banner": "article/0f3e1230-6392-586f-582c-bed7bd9ff5e8.jpg",
+                "summary": "冥想 + 白噪音 + 番茄钟的高效和健康解决方案",
+                "support_platforms": [
+                    "iOS",
+                    "Android"
+                ],
+                "price": 1600,
+                "cost_price": 3000,
+                "price_min": 1600,
+                "price_max": 3000
+            },
+            {
+                "id": 20,
+                "name": "Adguard 广告拦截器",
+                "banner": "article/55d94589-6a16-3dfe-e9e3-7e796b30f788.jpg",
+                "summary": "跨平台广告拦截及隐私保护工具",
+                "support_platforms": [
+                    "macOS",
+                    "Windows",
+                    "iOS",
+                    "Android"
+                ],
+                "price": 4000,
+                "cost_price": 4000,
+                "price_min": 4000,
+                "price_max": 4000
+            },
+            {
+                "id": 41,
+                "name": "XMind 2020",
+                "banner": "article/57d462f6-c123-87be-e3a4-d0a3735d2750.jpg",
+                "summary": "一款全新的思维导图软件",
+                "support_platforms": [
+                    "macOS",
+                    "iOS"
+                ],
+                "price": 34200,
+                "cost_price": 38800,
+                "price_min": 34200,
+                "price_max": 38800
+            },
+            {
+                "id": 86,
+                "name": "Markdown.app",
+                "banner": "article/1dc624ca-9500-3ae0-ebbf-244e1cc00532.jpg",
+                "summary": "为中文写作打造的 Markdown 编辑工具",
+                "support_platforms": [
+                    "macOS"
+                ],
+                "price": 6800,
+                "cost_price": 6800,
+                "price_min": 6800,
+                "price_max": 6800
+            },
+            {
+                "id": 48,
+                "name": "纯纯写作",
+                "banner": "article/7410f3e6-8487-3fdb-f1d8-567a541e7f95.jpg",
+                "summary": "也许是 Android 平台最好的写作工具",
+                "support_platforms": [
+                    "Android"
+                ],
+                "price": 10100,
+                "cost_price": 12800,
+                "price_min": 10100,
+                "price_max": 12800
+            },
+            {
+                "id": 44,
+                "name": "白描",
+                "banner": "article/b5b274f5-d62b-ac6f-1e50-d6437af52525.jpg",
+                "summary": "高效准确文字识别工具",
+                "support_platforms": [
+                    "iOS",
+                    "Android"
+                ],
+                "price": 1000,
+                "cost_price": 1800,
+                "price_min": 1000,
+                "price_max": 1800
+            }
+        ],
+        "choiceness": [
+            {
+                "id": 4,
+                "name": "Downie 4",
+                "banner": "article/a18035ca-e706-7840-67c6-3ffccd64f5f2.jpg",
+                "summary": "支持 1000+ 流媒体网站的视频下载工具",
+                "support_platforms": [
+                    "macOS"
+                ],
+                "price": 7900,
+                "cost_price": 7900,
+                "price_min": 7900,
+                "price_max": 7900
+            },
+            {
+                "id": 20,
+                "name": "Adguard 广告拦截器",
+                "banner": "article/55d94589-6a16-3dfe-e9e3-7e796b30f788.jpg",
+                "summary": "跨平台广告拦截及隐私保护工具",
+                "support_platforms": [
+                    "macOS",
+                    "Windows",
+                    "iOS",
+                    "Android"
+                ],
+                "price": 4000,
+                "cost_price": 4000,
+                "price_min": 4000,
+                "price_max": 4000
+            },
+            {
+                "id": 64,
+                "name": "MoneyWiz 3",
+                "banner": "article/7b506120-2d5b-efd9-79e0-132eefc854b2.jpg",
+                "summary": "让记账过程更清晰、记账系统更完整",
+                "support_platforms": [
+                    "macOS",
+                    "Windows",
+                    "iOS",
+                    "Android"
+                ],
+                "price": 16900,
+                "cost_price": 24800,
+                "price_min": 16900,
+                "price_max": 24800
+            },
+            {
+                "id": 77,
+                "name": "One Switch",
+                "banner": "article/5533e08d-d2bb-4bdf-a68e-0310b0c12137.jpg",
+                "summary": "Mac 菜单栏快捷切换工具",
+                "support_platforms": [
+                    "macOS"
+                ],
+                "price": 3000,
+                "cost_price": 3000,
+                "price_min": 3000,
+                "price_max": 3000
+            },
+            {
+                "id": 57,
+                "name": "滴墨书摘",
+                "banner": "article/51881a88-1f53-04e3-4505-c0271a4f86ee.jpg",
+                "summary": "读书笔记管理利器",
+                "support_platforms": [
+                    "iOS",
+                    "Android"
+                ],
+                "price": 8800,
+                "cost_price": 8800,
+                "price_min": 8800,
+                "price_max": 8800
+            },
+            {
+                "id": 85,
+                "name": "Wise Care 365 Pro",
+                "banner": "article/7336733b-9753-f7fb-2f01-1e45b8244b45.jpg",
+                "summary": "Windows 清理工具/系统管家",
+                "support_platforms": [
+                    "Windows"
+                ],
+                "price": 4900,
+                "cost_price": 21000,
+                "price_min": 4900,
+                "price_max": 21000
+            }
+        ]
+    }
+}

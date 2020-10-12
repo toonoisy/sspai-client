@@ -3,31 +3,52 @@
     <!--头部导航栏-->
     <div class="nav">
       <ul class="navContainer">
-        <li class="navItem active"><a href="javascript:;">商城首页</a></li>
         <li class="navItem">
-          <a href="javascript:;">全部分类</a>
-          <!-- <router-link to="/pistore/allcategories">全部分类</router-link> -->
+          <!-- <a href="javascript:;">商城首页</a> -->
+          <router-link to="./pistore">商城首页</router-link>
         </li>
-        <li class="navItem"><a href="javascript:;">装机必备</a></li>
-        <li class="navItem"><a href="javascript:;">生活工作</a></li>
+        <li class="navItem">
+          <!-- <a href="javascript:;" @click="toAllcatre">全部分类</a> -->
+          <router-link to="/allcategories">全部分类</router-link>
+        </li>
+        <li class="navItem">
+          <!-- <router-link to="/asd">装机必备</router-link> -->
+          <a href="javascript:;">装机必备</a>
+        </li>
+        <li class="navItem">
+          <!-- <router-link>生活工作</router-link> -->
+          <a href="javascript:;">生活工作</a>
+        </li>
       </ul>
     </div>
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HeaderTop',
   data() {
     return {
-      isShow: true,
+      currIndex: false,
     }
+  },
+  methods: {},
+  computed: {
+    //内容区数据
+    ...mapState({
+      contentInfo: (state) => state.setting.contentInfo,
+    }),
   },
 }
 </script>
 
 <style lang="less" scoped>
 //头部内容样式
+.router-link-active {
+  color: red;
+}
 .piStreContainer {
   width: 1116px;
   height: 100%;
@@ -51,6 +72,7 @@ export default {
         a {
           display: inline-block;
           // color: red;
+          text-decoration: none;
         }
         &.active {
           a {
