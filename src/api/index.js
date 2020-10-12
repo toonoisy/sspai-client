@@ -2,7 +2,7 @@ import Ajax from '@/ajax/Ajax';
 
 // 社区列表
 // http://localhost:3001/api/matrixList
-export const reqMatricList = () => {
+export const reqMatricList = (limit, offset) => {
   return Ajax({
     url:'/matrixList',
     method:'get'
