@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import setting from './setting'
+import detail from './detail'
+
 Vue.use(Vuex)
 
 import home from './home'
@@ -16,5 +19,7 @@ export default new Vuex.Store({
   getters,
   modules: {
     home,
+    setting,
+    detail,
   },
 })
