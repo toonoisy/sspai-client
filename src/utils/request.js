@@ -1,22 +1,22 @@
-import axios from "axios";
+import axios from 'axios'
 
 const service = axios.create({
-  baseURL: "/api",
+  baseURL: '/api',
   timeout: 20000,
-});
+})
 
 service.interceptors.request.use((config) => {
-  return config;
-});
+  return config
+})
 
 service.interceptors.response.use(
   (response) => {
-    return response.data;
+    return response.data
   },
   (error) => {
-    alert("发送请求失败" + error.message || "未知错误");
-    return new Promise(() => {});
+    alert('发送请求失败' + error.message || '未知错误')
+    return new Promise(() => {})
   }
-);
+)
 
-export default service;
+export default service

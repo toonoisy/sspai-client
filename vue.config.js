@@ -1,13 +1,15 @@
 module.exports = {
   lintOnSave: true,
   devServer: {
-    //   自动打开浏览器
-    open: true,
-    //  处理跨域
     proxy: {
-        "/api": {
-            target: "http://localhost:3001",
-        }
-    }
-  }
+      '/api': {
+        // 匹配所有以 '/dev-api'开头的请求路径
+        target: 'http://localhost:3001', // 代理目标的基础路径
+        changeOrigin: true, // 支持跨域
+        // pathRewrite: {
+        //   '^/api': '',
+        // },
+      },
+    },
+  },
 }
