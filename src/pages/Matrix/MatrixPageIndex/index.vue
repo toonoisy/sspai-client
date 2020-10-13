@@ -74,7 +74,7 @@
             </a>
           </li>
         </ul>
-        <div class="more">加载更多</div>
+        <div class="showMore">加载更多</div>
       </div>
 
       <!-- 侧边栏 -->
@@ -379,7 +379,7 @@ export default {
         }
       }
 
-      .more {
+      .showMore {
         cursor: pointer;
         color: #655e5e;
         font-size: 14px;
@@ -395,7 +395,7 @@ export default {
         transition: color 0.2s;
       }
 
-      .more:hover {
+      .showMore:hover {
         color: #292525;
       }
     }

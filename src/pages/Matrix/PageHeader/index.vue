@@ -29,6 +29,7 @@ export default {
 
 <style lang="less" scoped>
 .matrixPageHeader {
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.03));
   .pageTitle {
     max-width: 1140px;
     margin: auto;

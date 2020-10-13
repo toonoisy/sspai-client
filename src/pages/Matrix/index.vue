@@ -4,19 +4,17 @@
     <Header></Header>
     <!-- 页面 -->
     <div class="matrixPage">
-      
       <PageHeader></PageHeader>
-      <MatrixPageIndex></MatrixPageIndex>
+      <ColumnsContainer></ColumnsContainer>
     </div>
   </div>
 </template>
 
 <script>
-import Header from './Header';
-import PageHeader from './PageHeader';
-import MatrixPageIndex from './MatrixPageIndex';
-
-
+import Header from "./Header";
+import PageHeader from "./PageHeader";
+import MatrixPageIndex from "./MatrixPageIndex";
+import ColumnsContainer from "./ColumnsContainer";
 
 export default {
   name: "",
@@ -24,7 +22,8 @@ export default {
     Header,
     PageHeader,
     MatrixPageIndex,
-  }
+    ColumnsContainer,
+  },
 };
 </script>
 
@@ -33,13 +32,13 @@ export default {
   min-height: 100%;
   padding-top: 60px;
   overflow-x: hidden;
-  background: rgba(0, 0, 0, 0.03);
 
   a {
     text-decoration: none;
   }
 
-
- 
+  .matrixPage {
+    background: #fff;
+  }
 }
 </style>
