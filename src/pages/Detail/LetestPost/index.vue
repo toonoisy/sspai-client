@@ -26,7 +26,7 @@
                 <span>{{postItem.comment_count}}</span>
               </span>
               <span class="post-other-item">
-                <span>02月27日</span>
+                <span>{{postItem.created_time | timeformat('MM月DD日')}}</span>
               </span>
             </div>
           </div>
@@ -40,7 +40,6 @@
     </li>
   </ul>
 </template>
-
 <script>
 export default {
   name: "LetestPost",
@@ -60,14 +59,8 @@ export default {
       const result = await this.$API.reqPostItem(this.id)
       this.total = result.total
       this.postItemList = result.data
-    }
-  },
-  watch:{
-    id1(){
-      return this.$props.id1
-    }
-  }
-  
+    },
+  },  
 };
 </script>
 

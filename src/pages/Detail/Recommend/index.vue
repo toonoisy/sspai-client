@@ -27,7 +27,7 @@
                 <span>{{recommend.comment_count}}</span>
               </span>
               <span class="post-other-item">
-                <span>02月27日</span>
+                <span>{{recommend.created_time | timeformat('MM月DD日')}}</span>
               </span>
             </div>
           </div>

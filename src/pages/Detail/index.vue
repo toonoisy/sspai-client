@@ -60,6 +60,7 @@ export default {
     this.getTopicsList()
   },
   methods:{
+    //  获取数据
    async getDetailBanner(){
     const result =  await this.$API.reqTopicDetailBanner(this.id)
     this.detailBanner = result.data
@@ -67,7 +68,7 @@ export default {
     getTopicsList(){
        const result = JSON.parse(localStorage.getItem('USERINFO_KEY')) || {}
        this.topicsList = result.data
-    }
+    },
   },
   components: {
     Recommend,
