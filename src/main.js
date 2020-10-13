@@ -23,6 +23,9 @@ Vue.filter('timeformat', function (value, formatStr = 'YYYY-MM-DD HH:mm:ss') {
 import infiniteScroll from 'vue-infinite-scroll'
 Vue.use(infiniteScroll)
 
+import { MenuItem } from 'element-ui'
+Vue.use(MenuItem)
+
 Vue.config.productionTip = false
 
 // 引入element-ui 轮播图

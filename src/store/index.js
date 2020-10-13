@@ -5,6 +5,7 @@ import setting from './setting'
 import detail from './detail'
 
 Vue.use(Vuex)
+import matrix from './matrix'
 
 import home from './home'
 
@@ -23,5 +24,6 @@ export default new Vuex.Store({
     home,
     setting,
     detail,
+    matrix,
   },
 })

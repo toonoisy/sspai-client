@@ -360,7 +360,6 @@ body.openModal {
         }
         .keywordList {
           .keyword {
-            float: left;
             font-style: normal;
             font-weight: 400;
             line-height: normal;

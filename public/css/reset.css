@@ -235,6 +235,7 @@ a:link:hover {
     clear: both;
     visibility: hidden;
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
   display: block;
@@ -247,3 +248,15 @@ a:link:hover {
 =======
 }
 >>>>>>> shiwei
+=======
+}
+
+/* svg字体图标 */
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+>>>>>>> huangjian

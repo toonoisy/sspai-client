@@ -8,6 +8,7 @@ import Detail from '../pages/Pistore/detail/index.vue'
 import Home from '@/pages/Home'
 const Topics = () => import('@/pages/Topics')
 const Detail = () => import('@/pages/Detail')
+import Matrix from '@/pages/Matrix'
 
 export default [
   {
@@ -41,5 +42,9 @@ export default [
   {
     path: '/',
     redirect: '/home',
+  },
+  {
+    path: '/matrix',
+    component: Matrix,
   },
 ]

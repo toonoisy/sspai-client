@@ -1,0 +1,86 @@
+{
+  "id": "2117071",
+  "name": "sspai",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "928647",
+      "name": "layout_3",
+      "font_class": "layout-3",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "5974267",
+      "name": "list",
+      "font_class": "list",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "8547595",
+      "name": "layout",
+      "font_class": "layout",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "14461477",
+      "name": "auto layout",
+      "font_class": "autolayout",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
+    {
+      "icon_id": "77109",
+      "name": "声波",
+      "font_class": "shengbo",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "2567347",
+      "name": "serch",
+      "font_class": "serch",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "9391673",
+      "name": "少数派",
+      "font_class": "sspai",
+      "unicode": "e780",
+      "unicode_decimal": 59264
+    },
+    {
+      "icon_id": "13658958",
+      "name": "精选",
+      "font_class": "jingxuan",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "14602523",
+      "name": "评论",
+      "font_class": "pinglun",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "15842997",
+      "name": "危险的闪电",
+      "font_class": "sandian",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "15963681",
+      "name": "Matrix",
+      "font_class": "Matrix",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    }
+  ]
+}
