@@ -59,7 +59,9 @@
                       <span>{{ posts.comment_count }}</span>
                     </span>
                     <span class="postOtherItem">
-                      <span>{{ posts.created_time }}</span>
+                      <span>{{
+                        posts.created_time | timeformat("MM月DD日")
+                      }}</span>
                     </span>
                   </div>
                 </div>
@@ -107,15 +109,27 @@
         <div class="recommend">
           <div class="recommendHeader">值得关注</div>
           <ul class="recommendList">
-            <li class="recommendListItem" v-for="item in commendList" :key="item.id_hash">
+            <li
+              class="recommendListItem"
+              v-for="item in commendList"
+              :key="item.id_hash"
+            >
               <a class="recommendItem" href="">
-                <img class="avater" :src="item.avatar" alt="" v-if="item.avatar.indexOf('cdn.sspai.com') !== -1"/>
-                <img class="avater" :src="`https://cdn.sspai.com/${item.avatar}`" alt="" v-else/>
+                <img
+                  class="avater"
+                  :src="item.avatar"
+                  alt=""
+                  v-if="item.avatar.indexOf('cdn.sspai.com') !== -1"
+                />
+                <img
+                  class="avater"
+                  :src="`https://cdn.sspai.com/${item.avatar}`"
+                  alt=""
+                  v-else
+                />
                 <div class="info">
-                  <span class="name">{{item.nickname}}</span>
-                  <span class="intro"
-                    >{{item.bio}}
-                  </span>
+                  <span class="name">{{ item.nickname }}</span>
+                  <span class="intro">{{ item.bio }} </span>
                 </div>
               </a>
             </li>
@@ -126,13 +140,27 @@
         <div class="recommend">
           <div class="recommendHeader">专栏推荐</div>
           <ul class="recommendList">
-            <li class="recommendListItem" v-for="item in specialList" :key="item.id">
+            <li
+              class="recommendListItem"
+              v-for="item in specialList"
+              :key="item.id"
+            >
               <a class="recommendItem" href="">
-                <img class="cover" :src="item.author.avatar" alt="" v-if="item.author.avatar.indexOf('cdn.sspai.com') !== -1"/>
-                <img class="cover" :src="`https://cdn.sspai.com/${item.author.avatar}`" alt="" v-else/>
+                <img
+                  class="cover"
+                  :src="item.author.avatar"
+                  alt=""
+                  v-if="item.author.avatar.indexOf('cdn.sspai.com') !== -1"
+                />
+                <img
+                  class="cover"
+                  :src="`https://cdn.sspai.com/${item.author.avatar}`"
+                  alt=""
+                  v-else
+                />
                 <div class="info">
-                  <span class="name">{{item.title}}</span>
-                  <span class="intro">{{item.article_count}} 人关注 </span>
+                  <span class="name">{{ item.title }}</span>
+                  <span class="intro">{{ item.article_count }} 人关注 </span>
                 </div>
               </a>
             </li>
@@ -146,6 +174,8 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
+var dayjs = require("dayjs");
+
 
 export default {
   name: "MatrixPageIndex",
@@ -188,11 +218,14 @@ export default {
     }),
     yipai() {
       return this.yipaiList || {};
-    }
-
+    },
   },
 
-
+  filters: {
+    timeformat: function(value, formatStr = "YYYY-MM-DD HH:mm:ss") {
+      return dayjs.unix(value).format(formatStr);
+    },
+  },
 };
 </script>
 
