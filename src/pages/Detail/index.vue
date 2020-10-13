@@ -1,10 +1,15 @@
 <template>
   <div>
     <div class="topic-detail-page">
-      <div class="page-header" :style="{backgroundImage:`url('https://cdn.sspai.com/${detailBanner.banner}')`}">
-        <div class="topic-title">{{detailBanner.title}}</div>
+      <div
+        class="page-header"
+        :style="{
+          backgroundImage: `url('https://cdn.sspai.com/${detailBanner.banner}')`,
+        }"
+      >
+        <div class="topic-title">{{ detailBanner.title }}</div>
         <div class="topic-intro">
-          {{detailBanner.intro}}
+          {{ detailBanner.intro }}
         </div>
         <div><el-button icon="el-icon-plus" round>收藏</el-button></div>
       </div>
@@ -21,20 +26,28 @@
         <div class="container-right">
           <div class="topics-content">
             <div class="block-title">推荐专题</div>
-                <div class="topics-card" v-for="(topics) in topicsList" :key="topics.id">
-                    <a href="javascript:;">
-                    <img :src="`https://cdn.sspai.com/${topics.banner}`" alt="" />
-                    <div class="topics-info">
-                    <span class="topics-title">{{topics.title}}</span>
-                    <span class="topics-count">共 {{topics.article_count}} 篇文章</span>
-                    </div>
-                    </a>
+            <div
+              class="topics-card"
+              v-for="topics in topicsList"
+              :key="topics.id"
+            >
+              <a href="javascript:;">
+                <img :src="`https://cdn.sspai.com/${topics.banner}`" alt="" />
+                <div class="topics-info">
+                  <span class="topics-title">{{ topics.title }}</span>
+                  <span class="topics-count"
+                    >共 {{ topics.article_count }} 篇文章</span
+                  >
                 </div>
-                <a href="/topics" class="search">
-                  <router-link to="/topics" class="search-all">查看全部</router-link>
-                  <!-- <span class="search-all">查看全部</span> -->
-                  <i class="iconfont icon-youjiankuohao"></i>
-                </a>
+              </a>
+            </div>
+            <a href="/topics" class="search">
+              <router-link to="/topics" class="search-all"
+                >查看全部</router-link
+              >
+              <!-- <span class="search-all">查看全部</span> -->
+              <i class="iconfont icon-youjiankuohao"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -43,44 +56,43 @@
 </template>
 
 <script>
-import Recommend from "@/pages/Detail/Recommend";
-import LetestPost from "@/pages/Detail/LetestPost";
-import {mapState} from 'vuex'
+import Recommend from '@/pages/Detail/Recommend'
+import LetestPost from '@/pages/Detail/LetestPost'
 export default {
-  name: "Detail",
+  name: 'Detail',
   data() {
     return {
-      id:this.$route.params.id,
-      detailBanner:{},
-      topicsList:[]
+      id: this.$route.params.id,
+      detailBanner: {},
+      topicsList: [],
     }
   },
-  mounted(){
+  mounted() {
     this.getDetailBanner()
     this.getTopicsList()
   },
-  methods:{
+  methods: {
     //  获取数据
-   async getDetailBanner(){
-    const result =  await this.$API.reqTopicDetailBanner(this.id)
-    this.detailBanner = result.data
+    async getDetailBanner() {
+      const result = await this.$API.reqTopicDetailBanner(this.id)
+      this.detailBanner = result.data
     },
-    getTopicsList(){
-       const result = JSON.parse(localStorage.getItem('USERINFO_KEY')) || {}
-       this.topicsList = result.data
+    getTopicsList() {
+      const result = JSON.parse(localStorage.getItem('USERINFO_KEY')) || {}
+      this.topicsList = result.data
     },
   },
   components: {
     Recommend,
     LetestPost,
   },
-};
+}
 </script>
 
 <style lang="less" scoped>
 .topic-detail-page {
   height: 100%;
-  background:#f4f4f4;
+  background: #f4f4f4;
   .page-header {
     min-height: 330px;
     background-image: linear-gradient(
@@ -146,67 +158,67 @@ export default {
         transition: color 0.2s;
       }
     }
-    .container-right{
-      .topics-content{
+    .container-right {
+      .topics-content {
         margin-top: 32px;
         padding: 0;
         margin: 0 auto;
         line-height: normal;
         width: 276px;
-      .block-title{
+        .block-title {
           font-weight: 500;
           font-size: 18px;
           line-height: 25px;
           color: #292525;
           margin: 35px 0 16px 0;
+        }
+        .topics-card {
+          margin-bottom: 10px;
+          a {
+            display: block;
+            height: 100%;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 20px;
+            background: #fff;
+            text-decoration: none;
+            img {
+              display: block;
+              width: 100%;
+              height: 148px;
+            }
+            .topics-info {
+              padding: 20px 24px;
+              display: flex;
+              flex-direction: column;
+              .topics-title {
+                color: #292525;
+                font-weight: 500;
+                text-decoration: none;
+                margin-bottom: 4px;
+              }
+              .topics-count {
+                color: #8e8787;
+              }
+            }
+          }
+        }
+        .topics-card:hover .topics-info {
+          background: #f7f7f8;
+        }
       }
-      .topics-card {
-        margin-bottom: 10px;
-        a {
-          display: block;
-          height: 100%;
-          cursor: pointer;
-          font-size: 14px;
-          line-height: 20px;
-          background: #fff;
-          text-decoration: none;
-        img {
-          display: block;
-          width: 100%;
-          height: 148px;
-        }
-      .topics-info {
-        padding: 20px 24px;
-        display: flex;
-        flex-direction: column;
-        .topics-title {
-          color: #292525;
-          font-weight: 500;
-          text-decoration: none;
-          margin-bottom: 4px;
-        }
-        .topics-count {
-          color: #8e8787;
-        }
-      }
-    }
-  }
-  .topics-card:hover .topics-info {
-      background: #f7f7f8;
-     }
-   }
-  .search{
-      width: 100%;
-      padding: 12px;
-      margin-top: -12px;
-      text-align: center;
-      cursor: pointer;
-      display: block;
-      text-decoration: none;
-      color: #292525;
-      font-size: 14px;
-     .search-all{
-          .icon-youjiankuohao{
+      .search {
+        width: 100%;
+        padding: 12px;
+        margin-top: -12px;
+        text-align: center;
+        cursor: pointer;
+        display: block;
+        text-decoration: none;
+        color: #292525;
+        font-size: 14px;
+        .search-all {
+          .icon-youjiankuohao {
             font-size: 10px;
             font-style: normal;
           }

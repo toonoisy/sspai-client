@@ -5,28 +5,36 @@
       <a href="javascript:;" class="post-item">
         <div class="post-info">
           <div class="post-title">
-            {{postItem.title}}
+            {{ postItem.title }}
           </div>
           <div class="post-content">
             <a href="javascript:;">
               <img
                 class="post-author-img"
-                :src="`https://cdn.sspai.com/${postItem.author.avatar}`"
+                :src="
+                  postItem.author.avatar.startsWith('https://cdn.sspai')
+                    ? postItem.author.avatar
+                    : `https://cdn.sspai.com/${postItem.author.avatar}`
+                "
                 alt=""
               />
-              <span class="post-author-name">{{postItem.author.nickname}}</span>
+              <span class="post-author-name">{{
+                postItem.author.nickname
+              }}</span>
             </a>
             <div class="post-other">
               <span class="post-other-item">
                 <i class="iconfont icon-shandian"></i>
-                <span>{{postItem.like_count}}</span>
+                <span>{{ postItem.like_count }}</span>
               </span>
               <span class="post-other-item">
                 <i class="iconfont icon-pinglun1"></i>
-                <span>{{postItem.comment_count}}</span>
+                <span>{{ postItem.comment_count }}</span>
               </span>
               <span class="post-other-item">
-                <span>{{postItem.created_time | timeformat('MM月DD日')}}</span>
+                <span>{{
+                  postItem.created_time | timeformat('MM月DD日')
+                }}</span>
               </span>
             </div>
           </div>
@@ -42,26 +50,26 @@
 </template>
 <script>
 export default {
-  name: "LetestPost",
-  data(){
-    return{
-      id:this.$route.params.id,
-      postItemList:[],
-      total:0
+  name: 'LetestPost',
+  data() {
+    return {
+      id: this.$route.params.id,
+      postItemList: [],
+      total: 0,
     }
   },
-  mounted(){
+  mounted() {
     this.getPostItem()
   },
-  methods:{
+  methods: {
     //  获取最新数据
-   async getPostItem(){
+    async getPostItem() {
       const result = await this.$API.reqPostItem(this.id)
       this.total = result.total
       this.postItemList = result.data
     },
-  },  
-};
+  },
+}
 </script>
 
 <style lang="less" scoped>

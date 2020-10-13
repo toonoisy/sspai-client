@@ -60,7 +60,7 @@
                     </span>
                     <span class="postOtherItem">
                       <span>{{
-                        posts.created_time | timeformat("MM月DD日")
+                        posts.created_time | timeformat('MM月DD日')
                       }}</span>
                     </span>
                   </div>
@@ -173,33 +173,32 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
-var dayjs = require("dayjs");
-
+import { mapState } from 'vuex'
+var dayjs = require('dayjs')
 
 export default {
-  name: "MatrixPageIndex",
+  name: 'MatrixPageIndex',
 
   mounted() {
     // vue生命周期，页面DOM挂载完成后触发该函数
-    this.getMatricList();
-    this.getMatricYipai();
-    this.getMatricCommend();
-    this.getMatricSpecial();
+    this.getMatricList()
+    this.getMatricYipai()
+    this.getMatricCommend()
+    this.getMatricSpecial()
   },
 
   methods: {
     getMatricList() {
-      this.$store.dispatch("getMatricList"); // 触发getMatricList
+      this.$store.dispatch('getMatricList') // 触发getMatricList
     },
     getMatricYipai() {
-      this.$store.dispatch("getMatricYipai"); // 触发getMatricList
+      this.$store.dispatch('getMatricYipai') // 触发getMatricList
     },
     getMatricCommend() {
-      this.$store.dispatch("getMatricCommend"); // 触发getMatricList
+      this.$store.dispatch('getMatricCommend') // 触发getMatricList
     },
     getMatricSpecial() {
-      this.$store.dispatch("getMatricSpecial"); // 触发getMatricList
+      this.$store.dispatch('getMatricSpecial') // 触发getMatricList
     },
   },
 
@@ -217,16 +216,16 @@ export default {
       specialList: (state) => state.matrix.matricSpecial.slice(0, 3),
     }),
     yipai() {
-      return this.yipaiList || {};
+      return this.yipaiList || {}
     },
   },
 
   filters: {
-    timeformat: function(value, formatStr = "YYYY-MM-DD HH:mm:ss") {
-      return dayjs.unix(value).format(formatStr);
+    timeformat: function(value, formatStr = 'YYYY-MM-DD HH:mm:ss') {
+      return dayjs.unix(value).format(formatStr)
     },
   },
-};
+}
 </script>
 
 <style lang="less" scoped>

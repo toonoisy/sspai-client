@@ -1,12 +1,12 @@
 <template>
   <div class="headerContainer">
     <div class="headerMain">
-      <div class="logoBox">
+      <router-link class="logoBox" to="/">
         <a class="logo">
           <i class="iconfont icon-icon-test"></i>
         </a>
         <h1 class="title">少数派</h1>
-      </div>
+      </router-link>
       <div class="menuBox">
         <div class="menuItem">
           <div class="menuItem1">
@@ -14,19 +14,21 @@
             <span>Matrix社区</span>
           </div>
           <div class="menuItem2List">
-            <div class="menuItem2">
+            <router-link class="menuItem2" to="/matrix">
               <i class="iconfont icon-M"></i>
               <span>社区广场</span>
-            </div>
-            <div class="menuItem2">
+            </router-link>
+            <router-link class="menuItem2" to="/">
               <i class="iconfont icon-M"></i>
               <span>一派</span>
-            </div>
+            </router-link>
           </div>
         </div>
         <div class="menuItem">
-          <i class="iconfont icon-fufei"></i>
-          <span>付费订阅</span>
+          <router-link to="/series">
+            <i class="iconfont icon-fufei"></i>
+            <span>付费订阅</span>
+          </router-link>
         </div>
         <div class="menuItem">
           <div class="menuItem1">
@@ -34,10 +36,10 @@
             <span>特别策划</span>
           </div>
           <div class="menuItem2List">
-            <div class="menuItem2">
+            <router-link class="menuItem2" to="/topics">
               <i class="iconfont icon-M"></i>
               <span>专题精选</span>
-            </div>
+            </router-link>
             <div class="menuItem2">
               <i class="iconfont icon-M"></i>
               <span>相机陈列馆</span>
@@ -54,10 +56,10 @@
             <span>Pi Store</span>
           </div>
           <div class="menuItem2List">
-            <div class="menuItem2">
+            <router-link class="menuItem2" to="/pistore">
               <i class="iconfont icon-M"></i>
               <span>正版软件</span>
-            </div>
+            </router-link>
             <div class="menuItem2">
               <i class="iconfont icon-M"></i>
               <span>官方淘宝</span>
@@ -65,8 +67,10 @@
           </div>
         </div>
         <div class="menuItem">
-          <i class="iconfont icon-fly"></i>
-          <span>Tron 计划</span>
+          <router-link to="/page/tron">
+            <i class="iconfont icon-fly"></i>
+            <span>Tron 计划</span>
+          </router-link>
         </div>
       </div>
       <div class="userBox">
@@ -77,31 +81,6 @@
         <button class="login">登录</button>
       </div>
     </div>
-    <!-- <div class="searchMain" v-show="isShowSearch">
-      <div class="searchContainer">
-        <div class="searchBox">
-          <input
-            type="text"
-            placeholder="热门搜索"
-            autofocus="autofocus"
-            ref="search"
-          />
-        </div>
-        <div class="keywords">
-          <span class="label left">热门搜索</span>
-          <ul class="keywordList">
-            <li class="keyword">工具</li>
-            <li class="keyword">工具</li>
-            <li class="keyword">工具</li>
-            <li class="keyword">工具</li>
-            <li class="keyword">工具</li>
-            <li class="keyword">工具</li>
-            <li class="keyword">工具</li>
-          </ul>
-          <span class="label right">换一组</span>
-        </div>
-      </div>
-    </div> -->
     <el-dialog
       :visible.sync="isShowSearch"
       :modal="false"
@@ -266,6 +245,7 @@ body.openModal {
         &:nth-child(1):hover .menuItem2List {
           height: 60px;
         }
+
         &:nth-child(3):hover .menuItem2List {
           height: 60px;
         }
@@ -274,9 +254,11 @@ body.openModal {
         }
         .iconfont {
           margin-right: 10px;
+          color: #e5e5e5;
         }
         span {
           font-size: 14px;
+          color: #e5e5e5;
         }
       }
     }

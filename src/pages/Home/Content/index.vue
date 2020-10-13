@@ -68,7 +68,7 @@
       </ul>
       <!-- 内容 -->
       <div class="contentMain">
-        <div class="news" v-show="morning_paper.banner">
+        <div class="news" v-if="morning_paper.banner">
           <div class="newsTitle">
             <a href="javascript:;">派早报</a>
             <div class="newsTime">
@@ -156,60 +156,7 @@
           <i class="el-icon-arrow-right"></i>
         </a>
       </div>
-      <!-- <div class="sspai_card">
-        <div class="sspai_title">
-          <i class="card_logo"></i>
-          <span>一派</span>
-        </div>
-        <ul class="sspai_list">
-          <li class="sspai_item">
-            <div class="item_left">
-              <span class="item_title">十一假期你准备干什么?</span>
-              <div class="item_talk">
-                <i class="el-icon-magic-stick"></i>
-                <span class="talk_rank">讨论 VOL.013</span>
-              </div>
-            </div>
-            <div class="item_right">
-              <img
-                src="https://cdn.sspai.com/article/cbf4d52c-d6e8-935c-502f-6d261ea9ed28.jpg?imageMogr2/auto-orient/quality/95/thumbnail/!126x88r/gravity/Center/crop/126x88/interlace/1"
-              />
-            </div>
-          </li>
-          <li class="sspai_item">
-            <div class="item_left">
-              <span class="item_title">十一假期你准备干什么?</span>
-              <div class="item_talk">
-                <i class="el-icon-magic-stick"></i>
-                <span class="talk_rank">讨论 VOL.013</span>
-              </div>
-            </div>
-            <div class="item_right">
-              <img
-                src="https://cdn.sspai.com/article/cbf4d52c-d6e8-935c-502f-6d261ea9ed28.jpg?imageMogr2/auto-orient/quality/95/thumbnail/!126x88r/gravity/Center/crop/126x88/interlace/1"
-              />
-            </div>
-          </li>
-          <li class="sspai_item">
-            <div class="item_left">
-              <span class="item_title">十一假期你准备干什么?</span>
-              <div class="item_talk">
-                <i class="el-icon-magic-stick"></i>
-                <span class="talk_rank">讨论 VOL.013</span>
-              </div>
-            </div>
-            <div class="item_right">
-              <img
-                src="https://cdn.sspai.com/article/cbf4d52c-d6e8-935c-502f-6d261ea9ed28.jpg?imageMogr2/auto-orient/quality/95/thumbnail/!126x88r/gravity/Center/crop/126x88/interlace/1"
-              />
-            </div>
-          </li>
-        </ul>
-        <a href="javascript:;" class="look_more">
-          查看更多
-          <i class="el-icon-arrow-right"></i>
-        </a>
-      </div> -->
+
       <div class="sspai_about">
         <div class="icon_about">
           <a href="javascript:;">

@@ -19,11 +19,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import { Button } from 'element-ui'
 Vue.use(Button)
 
-// 引入包含所有接口请求函数模块的API对象
-import * as API from '@/api'
-Vue.prototype.$API = API
 //  注册全局时间过滤器
-Vue.filter('timeformat', function (value, formatStr = 'YYYY-MM-DD HH:mm:ss') {
+Vue.filter('timeformat', function(value, formatStr = 'YYYY-MM-DD HH:mm:ss') {
   return dayjs(value).format(formatStr)
 })
 import infiniteScroll from 'vue-infinite-scroll'
@@ -35,15 +32,11 @@ Vue.use(MenuItem)
 Vue.config.productionTip = false
 
 // 引入element-ui 轮播图
-import { Carousel, CarouselItem, Icon, Dialog } from 'element-ui'
-Vue.use(Carousel)
+import { Carousel as elCarousel, CarouselItem, Icon, Dialog } from 'element-ui'
+Vue.use(elCarousel)
 Vue.use(Icon)
 Vue.use(CarouselItem)
 Vue.use(Dialog)
-
-// 引入
-import infiniteScroll from 'vue-infinite-scroll'
-Vue.use(infiniteScroll)
 
 // 测试接口
 import '@/api'

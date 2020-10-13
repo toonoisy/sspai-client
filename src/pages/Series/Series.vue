@@ -9,18 +9,18 @@
             target="_blank"
           >
             <div class="recommend">
-              {{ recommendList[idx] ? recommendList[idx].title_prefix : "" }}
+              {{ recommendList[idx] ? recommendList[idx].title_prefix : '' }}
             </div>
             <div class="recommend-title">
-              {{ recommendList[idx] ? recommendList[idx].title : "" }}
+              {{ recommendList[idx] ? recommendList[idx].title : '' }}
             </div>
             <div class="recommend-content">
-              {{ recommendList[idx] ? recommendList[idx].description : "" }}
+              {{ recommendList[idx] ? recommendList[idx].description : '' }}
             </div>
             <div class="recommend-ref">
               出自栏目：
               <span class="link">{{
-                recommendList[idx] ? recommendList[idx].series.title : ""
+                recommendList[idx] ? recommendList[idx].series.title : ''
               }}</span>
             </div>
           </a>
@@ -65,8 +65,8 @@
                     <img :src="`${CDN}${trial.article.banner}`" alt="" />
                   </div>
                   <div class="info-wrapper">
-                    <span>{{trial.series.title}}</span>
-                    <h4>{{trial.article.title}}</h4>
+                    <span>{{ trial.series.title }}</span>
+                    <h4>{{ trial.article.title }}</h4>
                   </div>
                 </router-link>
               </div>
@@ -87,56 +87,56 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import Carousel from "@/components/Carousel/Carousel";
-import Column from "@/components/Column/Column";
+import { mapState } from 'vuex'
+import Carousel from '@/components/Carousel/Carousel'
+import Column from '@/components/Column/Column'
 export default {
-  name: "Series",
+  name: 'Series',
   data() {
     return {
       // isShowSeriesColumn: true, // 改用 this.$route.fullPath 判断显示隐藏了
-      CDN: "https://cdn.sspai.com/",
-      idx: "",
-      keyword: "Power+",
-      to: "/series",
-      categories: ["最新上架", "精选试读"],
-    };
+      CDN: 'https://cdn.sspai.com/',
+      idx: '',
+      keyword: 'Power+',
+      to: '/series',
+      categories: ['最新上架', '精选试读'],
+    }
   },
   created() {
-    this.changeIndex();
+    this.changeIndex()
   },
   mounted() {
-    this.getBannerList();
-    this.getRecommendList();
-    this.getLatestList();
-    this.getTrialList();
-    this.getCategoriesList();
+    this.getBannerList()
+    this.getRecommendList()
+    this.getLatestList()
+    this.getTrialList()
+    this.getCategoriesList()
   },
   methods: {
     changeIndex() {
-      this.idx = Math.floor(Math.random() * (3 + 1)); // 生成一个0-3的随机数
+      this.idx = Math.floor(Math.random() * (3 + 1)) // 生成一个0-3的随机数
     },
     showSeriesColumn() {
-      this.$router.push("/series");
+      this.$router.push('/series')
     },
     showMy() {
-      this.$router.push("/series/my");
+      this.$router.push('/series/my')
       // console.log(this.$route);
     },
     getBannerList() {
-      this.$store.dispatch("getBannerList");
+      this.$store.dispatch('getBannerList')
     },
     getRecommendList() {
-      this.$store.dispatch("getRecommendList");
+      this.$store.dispatch('getRecommendList')
     },
     getLatestList() {
-      this.$store.dispatch("getLatestList");
+      this.$store.dispatch('getLatestList')
     },
     getTrialList() {
-      this.$store.dispatch("getTrialList");
+      this.$store.dispatch('getTrialList')
     },
     getCategoriesList() {
-      this.$store.dispatch("getCategoriesList");
+      this.$store.dispatch('getCategoriesList')
     },
   },
   computed: {
@@ -152,7 +152,7 @@ export default {
     Carousel,
     Column,
   },
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -161,6 +161,7 @@ export default {
   height: 100%;
   // height: 3000px;
   background: #f4f4f4;
+  margin-top: 20px;
 }
 .series-wrapper {
   width: 1120px;

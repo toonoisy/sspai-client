@@ -18,8 +18,13 @@
         <div class="left">
           <div class="user" v-if="articalCardInfo.author">
             <a href="javascript:;">
+              <!-- :src="`https://cdn.sspai.com/${articalCardInfo.author.avatar}`" -->
               <img
-                :src="`https://cdn.sspai.com/${articalCardInfo.author.avatar}`"
+                :src="
+                  articalCardInfo.author.avatar.startsWith('https://cdn.sspai')
+                    ? articalCardInfo.author.avatar
+                    : `https://cdn.sspai.com/${articalCardInfo.author.avatar}`
+                "
                 alt=""
               />
             </a>

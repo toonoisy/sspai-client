@@ -6,7 +6,6 @@ export const reqTopicsList = () => {
     method: 'get',
   })
 }
-
 //  获取底部数据
 export const reqTopics = () => {
   return request({
@@ -14,7 +13,6 @@ export const reqTopics = () => {
     method: 'get',
   })
 }
-
 //  获取点击导航时的话题
 export const reqTopicsAll = (tag) => {
   return request({
@@ -22,7 +20,6 @@ export const reqTopicsAll = (tag) => {
     method: 'get',
   })
 }
-
 //  加载更多的
 export const reqTopicsMore = () => {
   return request({
@@ -37,7 +34,6 @@ export const reqTopicDetailBanner = (id) => {
     method: 'get',
   })
 }
-
 //  获取最新数据
 export const reqPostItem = (id) => {
   return request({
@@ -60,7 +56,6 @@ export const reqKeywordList = () => {
     method: 'get',
   })
 }
-
 // 2-卡片图片数据
 export const reqCardImgList = () => {
   return request({
@@ -73,6 +68,12 @@ export const reqCardImgList = () => {
 export const reqSwitchInfo = () => {
   return request({
     url: '/bannerInfo',
+    method: 'get',
+  })
+}
+export const reqSeetingInfo = (id) => {
+  return request({
+    url: `/seetingInfo?${id}`,
     method: 'get',
   })
 }
@@ -124,13 +125,12 @@ export const reqDetailInfo = (id) => {
 
 // 社区列表
 // http://localhost:3001/api/matrixList
-export const reqMatricList = (limit, offset) => {
+export const reqMatricList = () => {
   return request({
     url: '/matrixList',
     method: 'get',
   })
 }
-
 // 社区一派
 // http://localhost:3001/api/matrixYipai
 export const reqMatricYipai = () => {
@@ -139,7 +139,6 @@ export const reqMatricYipai = () => {
     method: 'get',
   })
 }
-
 // 社区推荐
 // http://localhost:3001/api/matrixCommend
 export const reqMatricCommend = () => {
@@ -160,19 +159,15 @@ export const reqMatricSpecial = () => {
 export const reqSeriesBannerList = () => {
   return request.get('/seriesBanner')
 }
-
 export const reqSeriesRecommendList = () => {
   return request.get('/seriesRecommend')
 }
-
 export const reqSeriesLatestList = () => {
   return request.get('/seriesLatest')
 }
-
 export const reqSeriesTrialList = () => {
   return request.get('/seriesTrial')
 }
-
 export const reqSeriesCategoriesList = () => {
   return request.get('/seriesCategories')
 }

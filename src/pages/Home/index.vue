@@ -1,8 +1,6 @@
 <template>
   <div>
-    <Header />
     <Carousel />
-    <!--   -->
     <Card />
     <Content />
   </div>

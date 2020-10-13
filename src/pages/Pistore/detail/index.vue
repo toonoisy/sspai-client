@@ -17,14 +17,14 @@
 
           <div class="item">
             <span>
-              <a href="javascript">装机必备</a>
+              <a href="javascript:;">装机必备</a>
             </span>
             <i> > </i>
           </div>
 
           <div class="item">
             <span>
-              <a href="javascript">影音媒体</a>
+              <a href="javascript:;">影音媒体</a>
             </span>
           </div>
         </div>

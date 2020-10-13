@@ -125,7 +125,7 @@ export default {
     //跳转详情页
     toDetail(cont) {
       // console.log(cont.id)
-      this.$router.push({ path: `/detail?id=${cont.id}` })
+      this.$router.push({ path: `/shidetail?id=${cont.id}` })
     },
     //下拉加载更多
     async loadMore() {

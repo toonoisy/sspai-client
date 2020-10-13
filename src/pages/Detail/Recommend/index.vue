@@ -1,62 +1,70 @@
 <template>
-   <ul class="recommend-posts">
+  <ul class="recommend-posts">
     <div class="block-title" v-if="this.recommendList.length !== 0">推荐</div>
     <li v-for="recommend in recommendList" :key="recommend.id">
-      <a href="javascript:;" class="post-item">
-        <img class="itemImg" :src="`https://cdn.sspai.com/${recommend.banner}`" alt="" />
+      <a href="javascript:;" class="post-item" v-if="recommend.author.avatar">
+        <img
+          class="itemImg"
+          :src="`https://cdn.sspai.com/${recommend.banner}`"
+          alt=""
+        />
         <div class="post-info">
           <div class="post-title">
-             {{recommend.title}}
+            {{ recommend.title }}
           </div>
           <div class="post-content">
             <a href="javascript:;">
               <img
                 class="post-author-img"
-               :src="`https://cdn.sspai.com/${recommend.author.avatar}`"
+                :src="recommend.author.avatar"
                 alt=""
               />
-              <span class="post-author-name">{{recommend.author.nickname}}</span>
+              <span class="post-author-name">{{
+                recommend.author.nickname
+              }}</span>
             </a>
             <div class="post-other">
               <span class="post-other-item">
                 <i class="iconfont icon-shandian"></i>
-                <span>{{recommend.like_count}}</span>
+                <span>{{ recommend.like_count }}</span>
               </span>
               <span class="post-other-item">
                 <i class="iconfont icon-pinglun1"></i>
-                <span>{{recommend.comment_count}}</span>
+                <span>{{ recommend.comment_count }}</span>
               </span>
               <span class="post-other-item">
-                <span>{{recommend.created_time | timeformat('MM月DD日')}}</span>
+                <span>{{
+                  recommend.created_time | timeformat('MM月DD日')
+                }}</span>
               </span>
             </div>
           </div>
         </div>
       </a>
     </li>
-   </ul>
+  </ul>
 </template>
 
 <script>
 export default {
-  name: "Recommend",
+  name: 'Recommend',
   data() {
     return {
-      id:this.$route.params.id,
-      recommendList:[],
-      isShow:true
+      id: this.$route.params.id,
+      recommendList: [],
+      isShow: true,
     }
   },
-  mounted(){
+  mounted() {
     this.getRecommend()
   },
   methods: {
-   async getRecommend(){
-      const result = await  this.$API.reqRecommend(this.id)
+    async getRecommend() {
+      const result = await this.$API.reqRecommend(this.id)
       this.recommendList = result.data
-    }
+    },
   },
-};
+}
 </script>
 
 <style lang="less" scoped>

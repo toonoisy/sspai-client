@@ -52,7 +52,7 @@ export default {
     },
     //跳转到详情页
     toDetail(item) {
-      this.$router.push({ path: `/detail?id=${item.id}` })
+      this.$router.push({ path: `/shidetail?id=${item.id}` })
     },
   },
   computed: {

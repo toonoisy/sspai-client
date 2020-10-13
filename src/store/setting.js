@@ -3,7 +3,7 @@ import {
   reqSwitchInfo,
   reqContentInfo,
   reqSelectedInfo,
-} from '../api'
+} from '@/api'
 const state = {
   settingInfo: {},
   switchInfo: {},
@@ -50,7 +50,7 @@ const actions = {
     const result = await reqContentInfo(offset, class_id)
     if (result.data.length === 12) {
       commit('RECEIVECONTENTINFO', result.data)
-    } else if (result.data.length >= 12 || result.data.length < 12) {
+    } else {
       commit('RECEIVECONTENTINFN', result.data)
     }
   },

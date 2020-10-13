@@ -4,12 +4,12 @@
     <div class="headerContainer">
       <div class="headerMain">
         <div class="logoBox">
-          <div class="logo">
+          <router-link class="logo" to="/">
             <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-sspai"></use>
             </svg>
             <span class="title">返回少数派</span>
-          </div>
+          </router-link>
         </div>
         <div class="headerCenter">
           <i class="iconfont icon-Matrix"></i>
@@ -25,8 +25,8 @@
 
 <script>
 export default {
-  name: "",
-};
+  name: '',
+}
 </script>
 
 <style lang="less" scoped>

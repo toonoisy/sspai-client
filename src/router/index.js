@@ -20,7 +20,7 @@ VueRouter.prototype.push = function push(location, onResolve, onReject) {
 
 const router = new VueRouter({
   routes,
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior() {
     return { x: 0, y: 0 }
   },
 })

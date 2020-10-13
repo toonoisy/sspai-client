@@ -1,6 +1,5 @@
 <template>
   <div class="packageContainer">
-    <Header />
     <!--头部内容-->
     <HederTop />
     <!--轮播图-->
@@ -8,7 +7,7 @@
     <!--内容区-->
     <Content />
     <!--最新上架-->
-    <Shelf :choiceness="choiceness" />
+    <Shelf />
     <!--编辑精选-->
     <Selected />
     <!--装机必备-->
