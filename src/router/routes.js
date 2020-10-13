@@ -9,6 +9,9 @@ import Home from '@/pages/Home'
 const Topics = () => import('@/pages/Topics')
 const Detail = () => import('@/pages/Detail')
 import Matrix from '@/pages/Matrix'
+import Series from '@/pages/Series/Series'
+import My from '@/pages/Series/My/My'
+import Tron from '@/pages/Tron/Tron'
 
 export default [
   {
@@ -46,5 +49,22 @@ export default [
   {
     path: '/matrix',
     component: Matrix,
+  },
+  {
+    path: '/series',
+    component: Series,
+    name: 'Series',
+    children: [
+      {
+        path: 'my',
+        component: My,
+        name: 'My',
+      },
+    ],
+  },
+  {
+    path: '/page/tron',
+    component: Tron,
+    name: 'Tron',
   },
 ]

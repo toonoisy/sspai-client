@@ -3,9 +3,9 @@ import Vuex from 'vuex'
 import topics from './topics'
 import setting from './setting'
 import detail from './detail'
-
-Vue.use(Vuex)
+import series from './series'
 import matrix from './matrix'
+Vue.use(Vuex)
 
 import home from './home'
 
@@ -25,5 +25,6 @@ export default new Vuex.Store({
     setting,
     detail,
     matrix,
+    series,
   },
 })

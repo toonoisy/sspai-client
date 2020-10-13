@@ -8,6 +8,12 @@ import dayjs from 'dayjs'
 import TopicsList from '@/components/TopicsList'
 Vue.component('TopicsList', TopicsList)
 
+import { Input } from 'element-ui'
+Vue.use(Input)
+import 'swiper/css/swiper.css'
+import Carousel from '@/components/Carousel/Carousel'
+Vue.component('Carousel', Carousel)
+
 // 引入并全局注册button组建
 import 'element-ui/lib/theme-chalk/index.css'
 import { Button } from 'element-ui'

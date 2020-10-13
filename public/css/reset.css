@@ -75,7 +75,7 @@ small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正�
 ul, ol { list-style: none; }
 
 /* 重置文本格式元素 */
-a { text-decoration: none; color: #666;}
+a { text-decoration: none !important; color: #666;}
 
 
 /* 重置表单元素 */
@@ -198,7 +198,11 @@ hr {
 html { overflow-y: scroll; }
 
 a:link:hover{
+<<<<<<< HEAD
     color : rgb(79, 76, 212) ;
+=======
+    /* color : rgb(79, 76, 212) !important; */
+>>>>>>> tanjing
     text-decoration: underline;
 <<<<<<< HEAD
 =======
