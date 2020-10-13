@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
 Vue.use(Vuex)
+
+import home from './home'
 
 const state = {}
 const mutations = {}
@@ -14,6 +15,6 @@ export default new Vuex.Store({
   actions,
   getters,
   modules: {
-    
-  }
+    home,
+  },
 })
