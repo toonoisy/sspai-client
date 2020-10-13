@@ -5,11 +5,6 @@ import Home from '@/pages/Home'
 
 export default [
   {
-<<<<<<< HEAD
-    path: '',
-  },
-]
-=======
     path: '/home',
     component: Home,
   },
@@ -22,4 +17,3 @@ export default [
     redirect: '/home',
   },
 ]
->>>>>>> hudonglong
