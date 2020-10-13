@@ -3,24 +3,77 @@
     <!-- 左边 -->
     <div class="contentLeft">
       <!-- 标题 -->
-      <ul class="navList">
-        <li class="navItem active">推荐</li>
-        <li class="navItem">最热</li>
-        <li class="navItem">应用设置</li>
-        <li class="navItem">生活方式</li>
-        <li class="navItem">效率技巧</li>
-        <li class="navItem">博客</li>
-        <li class="navItem">视频</li>
+      <ul class="navList" @click="changeIndex">
+        <li
+          class="navItem"
+          :class="{ active: currentIndex === 0 }"
+          data-tag="推荐"
+          data-index="0"
+        >
+          推荐
+        </li>
+        <li
+          class="navItem"
+          data-tag="热门文章"
+          data-index="1"
+          :class="{ active: currentIndex === 1 }"
+          data-time="1602431451"
+        >
+          最热
+        </li>
+        <li
+          class="navItem"
+          data-tag="应用推荐"
+          data-index="2"
+          :class="{ active: currentIndex === 2 }"
+          data-time="1602431331"
+        >
+          应用设置
+        </li>
+        <li
+          class="navItem"
+          data-tag="生活方式"
+          data-index="3"
+          :class="{ active: currentIndex === 3 }"
+          data-time="1602431378"
+        >
+          生活方式
+        </li>
+        <li
+          class="navItem"
+          data-tag="效率技巧"
+          data-index="4"
+          :class="{ active: currentIndex === 4 }"
+          data-time="1602431401"
+        >
+          效率技巧
+        </li>
+        <li
+          class="navItem"
+          data-tag="少数派播客"
+          data-index="5"
+          :class="{ active: currentIndex === 5 }"
+          data-time="1602431432"
+        >
+          博客
+        </li>
+        <li
+          class="navItem"
+          data-tag="生活方式"
+          data-index="6"
+          :class="{ active: currentIndex === 6 }"
+        >
+          视频
+        </li>
       </ul>
       <!-- 内容 -->
       <div class="contentMain">
-        <ArticleCard></ArticleCard>
-        <div class="news">
+        <div class="news" v-show="morning_paper.banner">
           <div class="newsTitle">
             <a href="javascript:;">派早报</a>
             <div class="newsTime">
-              <div class="time">二〇二〇年十月九日</div>
-              <div class="week">星期五</div>
+              <div class="time">{{ nowDate }}</div>
+              <div class="week">{{ nowWeek }}</div>
             </div>
             <div class="newsLink">
               <a href="javascript:;">阅读全篇早报 -></a>
@@ -30,7 +83,7 @@
             <div class="newsImg">
               <a href="javascript:;">
                 <img
-                  src="https://cdn.sspai.com/article/35f2e31b-1ef6-c348-5cf6-158aa67857a7.png?imageMogr2/auto-orient/quality/95/thumbnail/!456x456r/gravity/Center/crop/456x456/interlace/1"
+                  :src="`https://cdn.sspai.com/${morning_paper.banner}`"
                   alt=""
                   width="227"
                   height="230"
@@ -38,40 +91,32 @@
               </a>
             </div>
             <ul class="newsList">
-              <li class="newsItem">
-                <div class="newsIndex">01</div>
-                <a href="javascript:;">一加官方公布 OnePlus 8T 外观</a>
-              </li>
-              <li class="newsItem">
-                <div class="newsIndex">01</div>
-                <a href="javascript:;">一加官方公布 OnePlus 8T 外观</a>
-              </li>
-              <li class="newsItem">
-                <div class="newsIndex">01</div>
-                <a href="javascript:;">一加官方公布 OnePlus 8T 外观</a>
-              </li>
-              <li class="newsItem">
-                <div class="newsIndex">01</div>
-                <a href="javascript:;">一加官方公布 OnePlus 8T 外观</a>
-              </li>
-              <li class="newsItem">
-                <div class="newsIndex">01</div>
-                <a href="javascript:;">一加官方公布 OnePlus 8T 外观</a>
-              </li>
-              <li class="newsItem">
-                <div class="newsIndex">01</div>
-                <a href="javascript:;">一加官方公布 OnePlus 8T 外观</a>
+              <li
+                class="newsItem"
+                v-for="(item, index) in morning_paper.morning_paper_title"
+                :key="index"
+              >
+                <div class="newsIndex">0{{ index + 1 }}</div>
+                <a href="javascript:;">{{ item }}</a>
               </li>
             </ul>
           </div>
         </div>
-        <ArticleCard></ArticleCard>
-        <ArticleCard></ArticleCard>
-        <ArticleCard></ArticleCard>
-        <ArticleCard></ArticleCard>
-        <ArticleCard></ArticleCard>
-        <ArticleCard></ArticleCard>
-        <ArticleCard></ArticleCard>
+
+        <div
+          v-infinite-scroll="loadMore"
+          infinite-scroll-disabled="busy"
+          infinite-scroll-distance="10"
+        >
+          <ArticleCard
+            v-for="(articalCardInfo, index) in articalCardList"
+            :key="index"
+            :articalCardInfo="articalCardInfo"
+          />
+        </div>
+      </div>
+      <div class="bottomLoading" v-show="busy">
+        正在加载中...
       </div>
     </div>
     <!-- 右边 -->
@@ -87,46 +132,22 @@
           <span>一派</span>
         </div>
         <ul class="sspai_list">
-          <li class="sspai_item">
+          <li
+            class="sspai_item"
+            v-for="item in yipaiCardList"
+            :key="item.banner_id"
+          >
             <div class="item_left">
-              <span class="item_title">十一假期你准备干什么?</span>
+              <span class="item_title">{{ item.title }}</span>
               <div class="item_talk">
                 <i class="el-icon-magic-stick"></i>
-                <span class="talk_rank">讨论 VOL.013</span>
+                <span class="talk_rank"
+                  >讨论 VOL.<b>{{ item.vol }}</b></span
+                >
               </div>
             </div>
             <div class="item_right">
-              <img
-                src="https://cdn.sspai.com/article/cbf4d52c-d6e8-935c-502f-6d261ea9ed28.jpg?imageMogr2/auto-orient/quality/95/thumbnail/!126x88r/gravity/Center/crop/126x88/interlace/1"
-              />
-            </div>
-          </li>
-          <li class="sspai_item">
-            <div class="item_left">
-              <span class="item_title">十一假期你准备干什么?</span>
-              <div class="item_talk">
-                <i class="el-icon-magic-stick"></i>
-                <span class="talk_rank">讨论 VOL.013</span>
-              </div>
-            </div>
-            <div class="item_right">
-              <img
-                src="https://cdn.sspai.com/article/cbf4d52c-d6e8-935c-502f-6d261ea9ed28.jpg?imageMogr2/auto-orient/quality/95/thumbnail/!126x88r/gravity/Center/crop/126x88/interlace/1"
-              />
-            </div>
-          </li>
-          <li class="sspai_item">
-            <div class="item_left">
-              <span class="item_title">十一假期你准备干什么?</span>
-              <div class="item_talk">
-                <i class="el-icon-magic-stick"></i>
-                <span class="talk_rank">讨论 VOL.013</span>
-              </div>
-            </div>
-            <div class="item_right">
-              <img
-                src="https://cdn.sspai.com/article/cbf4d52c-d6e8-935c-502f-6d261ea9ed28.jpg?imageMogr2/auto-orient/quality/95/thumbnail/!126x88r/gravity/Center/crop/126x88/interlace/1"
-              />
+              <img :src="`https://cdn.sspai.com/${item.banner}`" />
             </div>
           </li>
         </ul>
@@ -135,7 +156,7 @@
           <i class="el-icon-arrow-right"></i>
         </a>
       </div>
-      <div class="sspai_card">
+      <!-- <div class="sspai_card">
         <div class="sspai_title">
           <i class="card_logo"></i>
           <span>一派</span>
@@ -188,7 +209,7 @@
           查看更多
           <i class="el-icon-arrow-right"></i>
         </a>
-      </div>
+      </div> -->
       <div class="sspai_about">
         <div class="icon_about">
           <a href="javascript:;">
@@ -226,15 +247,92 @@
 
 <script>
 import ArticleCard from '../ArticleCard'
+import { mapState, mapGetters } from 'vuex'
+import { CNDateString, getWeek } from '@/assets/formatDate'
 export default {
   name: 'Content',
+  data() {
+    return {
+      nowDate: CNDateString(new Date()),
+      nowWeek: getWeek(),
+      busy: false,
+      offset: 0,
+      tag: '推荐',
+      currentIndex: 0,
+      time: '1602431493',
+    }
+  },
+  computed: {
+    ...mapState({
+      yipaiCardList: (state) => state.home.yipaiCardList,
+      articalCardList: (state) => state.home.articalCardList,
+    }),
+    ...mapGetters(['morning_paper']),
+  },
+  methods: {
+    // 事件委派
+    changeIndex(event) {
+      let target = event.target
+      let data = target.dataset
+      let { tag, index, time } = data
+      if (tag) {
+        this.tag = tag
+        this.currentIndex = +index
+        this.time = time
+        this.offset += 100
+        if (index == 0) {
+          this.offset = 0
+        }
+      }
+    },
+    async loadMore() {
+      this.busy = true
+      this.offset += 10
+      await this.$store.dispatch('getArticalCardList', {
+        limit: 5,
+        offset: this.offset,
+        tag: this.tag,
+        time: this.time,
+      })
+      this.busy = false
+    },
+    getYipaiCardList() {
+      this.$store.dispatch('getYipaiCardList')
+    },
+    getArticalCardList() {
+      this.$store.dispatch('getArticalCardList', {
+        limit: 10,
+        offset: this.offset,
+        tag: this.tag,
+        time: this.time,
+      })
+    },
+  },
+  mounted() {
+    this.getYipaiCardList()
+    this.getArticalCardList()
+  },
   components: {
     ArticleCard,
+  },
+  watch: {
+    tag() {
+      this.getArticalCardList()
+    },
   },
 }
 </script>
 
 <style lang="less" scoped>
+.clearFix() {
+  *zoom: 1;
+  &::after {
+    content: ' ';
+    display: block;
+    clear: both;
+    height: 0;
+  }
+}
 .contentContainer {
   position: relative;
   max-width: 1120px;
@@ -353,6 +451,12 @@ export default {
         }
       }
     }
+    .bottomLoading {
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+    }
   }
   .contentRight {
     position: absolute;
@@ -446,7 +550,7 @@ export default {
     .sspai_about {
       border-top: 1px solid #e5e5e5;
       margin-top: 30px;
-      padding-top: 30px;
+      padding: 30px 5px 0;
       .icon_about {
         display: flex;
         justify-content: space-between;

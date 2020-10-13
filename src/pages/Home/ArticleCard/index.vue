@@ -1,45 +1,42 @@
 <template>
   <div class="articleCard">
     <div class="cartImg">
-      <a href="javascript:;">
-        <img
-          src="https://cdn.sspai.com/article/57bd980b-0c34-750b-81ea-5ed9cce20152.png?imageMogr2/auto-orient/quality/95/thumbnail/!800x400r/gravity/Center/crop/800x400/interlace/1"
-          alt=""
-        />
+      <a href="javascript:;" v-if="articalCardInfo.banner">
+        <img :src="`https://cdn.sspai.com/${articalCardInfo.banner}`" alt="" />
       </a>
     </div>
     <div class="cart_content">
       <div class="card_title">
         <a href="javascript:;">
-          开源、可定制的网页批注工具——Hypothesis
+          {{ articalCardInfo.title }}
         </a>
       </div>
       <div class="card_hidden">
-        开源、可定制的网页批注工具——Hypothesis
+        {{ articalCardInfo.title }}
       </div>
       <div class="card_bottom">
         <div class="left">
-          <div class="user">
+          <div class="user" v-if="articalCardInfo.author">
             <a href="javascript:;">
               <img
-                src="https://cdn.sspai.com/user/714505_1489245009399.jpg?imageMogr2/auto-orient/quality/95/thumbnail/!48x48r/gravity/Center/crop/48x48/interlace/1"
+                :src="`https://cdn.sspai.com/${articalCardInfo.author.avatar}`"
                 alt=""
               />
             </a>
-            <a href="javascript:;">PlatyHsu</a>
+            <a href="javascript:;">{{ articalCardInfo.author.nickName }}</a>
           </div>
           <div class="time">
-            <span>59分钟前</span>
+            <span>{{ timeDistance }}前</span>
           </div>
         </div>
         <div class="right">
           <div class="collection">
             <i class="el-icon-s-flag"></i>
-            <span>11</span>
+            <span>{{ articalCardInfo.like_count }}</span>
           </div>
           <div class="comment">
             <i class="el-icon-chat-square"></i>
-            <span>2</span>
+            <span>{{ articalCardInfo.comment_count }}</span>
           </div>
         </div>
       </div>
@@ -48,8 +45,26 @@
 </template>
 
 <script>
+import { getDifValue } from '@/assets/formatDate'
+
 export default {
   name: 'ArticleCard',
+  props: ['articalCardInfo'],
+  data() {
+    return {
+      // timeDistance: getDifValue(this)
+    }
+  },
+  computed: {
+    // 时间差
+    timeDistance() {
+      let { articalCardInfo } = this
+      return getDifValue(
+        articalCardInfo.modify_time,
+        articalCardInfo.created_time
+      )
+    },
+  },
 }
 </script>
 

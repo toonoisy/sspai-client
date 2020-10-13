@@ -70,14 +70,22 @@
         </div>
       </div>
       <div class="userBox">
-        <i class="el-icon-search iconfont"></i>
+        <i
+          :class="isShowSearch ? 'el-icon-close' : 'el-icon-search'"
+          @click="showSearchBox"
+        ></i>
         <button class="login">登录</button>
       </div>
     </div>
-    <div class="searchMain">
+    <!-- <div class="searchMain" v-show="isShowSearch">
       <div class="searchContainer">
         <div class="searchBox">
-          <input type="text" placeholder="热门搜索" />
+          <input
+            type="text"
+            placeholder="热门搜索"
+            autofocus="autofocus"
+            ref="search"
+          />
         </div>
         <div class="keywords">
           <span class="label left">热门搜索</span>
@@ -93,17 +101,104 @@
           <span class="label right">换一组</span>
         </div>
       </div>
-    </div>
+    </div> -->
+    <el-dialog
+      :visible.sync="isShowSearch"
+      :modal="false"
+      width="100%"
+      top="60px"
+      :show-close="false"
+      :before-close="beforeClose"
+    >
+      <div class="searchMain" v-show="isShowSearch">
+        <div class="searchContainer">
+          <div class="searchBox">
+            <input
+              type="text"
+              placeholder="热门搜索"
+              autofocus="autofocus"
+              ref="search"
+            />
+          </div>
+          <div class="keywords">
+            <span class="label left">热门搜索</span>
+            <ul class="keywordList">
+              <li
+                class="keyword"
+                v-for="(keyword, index) in keywords"
+                :key="index"
+              >
+                {{ keyword }}
+              </li>
+            </ul>
+            <span class="label right" @click="changeKeywordList">换一组</span>
+          </div>
+        </div>
+      </div>
+    </el-dialog>
   </div>
 </template>
-
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'Header',
+  data() {
+    return {
+      isShowSearch: false,
+      currentIndex: 0,
+    }
+  },
+  methods: {
+    // 1-点击显示搜索框
+    showSearchBox() {
+      this.isShowSearch = !this.isShowSearch
+      this.$nextTick(() => {
+        this.$refs.search.focus()
+      })
+      document.body.style.overflow = 'hidden'
+      document.body.style.height = '100vh'
+    },
+    // 2-对话框关闭之前
+    beforeClose(done) {
+      document.body.style.overflow = ''
+      document.body.style.height = ''
+      done()
+    },
+    // 3-获取关键字
+    getKeywordList() {
+      this.$store.dispatch('getKeywordList')
+    },
+    // 4-改变关键字
+    changeKeywordList() {
+      this.currentIndex = this.currentIndex + 7
+      if (this.currentIndex > 99) {
+        this.currentIndex = 0
+      }
+    },
+  },
+  computed: {
+    // 1-拿到 keywordList
+    ...mapState({
+      keywordList: (state) => state.home.keywordList || [],
+    }),
+    // 2-根据keywordList 计算出一个新的关键字数组
+    keywords() {
+      let { currentIndex } = this
+      return this.keywordList.slice(currentIndex, currentIndex + 7)
+    },
+  },
+  mounted() {
+    this.getKeywordList()
+    this.$store.dispatch('getCardImgList')
+  },
 }
 </script>
 
 <style lang="less" scoped>
+body.openModal {
+  height: 100vh;
+  overflow: hidden;
+}
 .headerContainer {
   color: aliceblue;
   width: 100%;
@@ -188,7 +283,7 @@ export default {
     .userBox {
       height: 60px;
       line-height: 60xp;
-      .iconfont {
+      & > i {
         font-size: 20px;
         font-weight: bold;
         cursor: pointer;
@@ -209,8 +304,9 @@ export default {
   }
   .searchMain {
     width: 100%;
-    display: none;
-    background-color: tomato;
+    position: relative;
+    background-color: #fff;
+    // z-index: 99;
     .searchContainer {
       width: 100%;
       max-width: 810px;
@@ -218,7 +314,7 @@ export default {
       color: black;
       padding: 32px 0;
       .searchBox {
-        position: relative;
+        // position: relative;
         font-size: 14px;
         display: inline-block;
         width: 100%;
@@ -286,6 +382,9 @@ export default {
         }
       }
     }
+  }
+  /deep/ .el-dialog .el-dialog__header {
+    padding: 0;
   }
 }
 </style>
