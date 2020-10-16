@@ -5,6 +5,7 @@
     <!-- 页面 -->
     <div class="matrixPage">
       <PageHeader></PageHeader>
+      <MatrixPageIndex></MatrixPageIndex>
       <ColumnsContainer></ColumnsContainer>
     </div>
   </div>
