@@ -96,14 +96,15 @@ export default {
     return {
       // isShowSeriesColumn: true, // 改用 this.$route.fullPath 判断显示隐藏了
       CDN: 'https://cdn.sspai.com/',
-      idx: '',
+      idx: Math.floor(Math.random() * (3 + 1)),
+      // idx: '',
       keyword: 'Power+',
       to: '/series',
       categories: ['最新上架', '精选试读'],
     }
   },
   created() {
-    this.changeIndex()
+    // this.changeIndex()
   },
   mounted() {
     this.getBannerList()
@@ -113,9 +114,9 @@ export default {
     this.getCategoriesList()
   },
   methods: {
-    changeIndex() {
-      this.idx = Math.floor(Math.random() * (3 + 1)) // 生成一个0-3的随机数
-    },
+    // changeIndex() {
+    //   this.idx = Math.floor(Math.random() * (3 + 1)) // 生成一个0-3的随机数
+    // },
     showSeriesColumn() {
       this.$router.push('/series')
     },
