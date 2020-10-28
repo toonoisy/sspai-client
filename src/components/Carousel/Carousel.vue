@@ -8,8 +8,8 @@
       </div>
     </div>
     <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
   props: ["bannerList", "CDN"],
   watch: {
     bannerList: {
-      immediate: true,
+      // immediate: true,
       // eslint-disable-next-line
       handler(newVal, oldVal) {
         this.$nextTick(() => {
