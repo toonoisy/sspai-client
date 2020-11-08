@@ -201,8 +201,10 @@ export default {
       // console.log(top);
       // this.offset += 20
       this.limit += 10
-      if (this.limit > 41) {
-        this.loading = 2
+      if (this.limit === 40) {
+        this.loading = 1
+        await this.$store.dispatch('getMatricList', {limit: this.limit, offset: this.offset})
+        this.loading = 2 // 没有更多了
       } else {
         this.loading = 1
         // console.log(this.offset);
