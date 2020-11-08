@@ -125,9 +125,9 @@ export const reqDetailInfo = (id) => {
 
 // 社区列表
 // http://localhost:3001/api/matrixList
-export const reqMatricList = () => {
+export const reqMatricList = (limit, offset) => {
   return request({
-    url: '/matrixList',
+    url: `/matrixList?limit=${limit}&offset=${offset}`,
     method: 'get',
   })
 }

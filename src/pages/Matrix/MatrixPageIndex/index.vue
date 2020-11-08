@@ -74,7 +74,9 @@
             </a>
           </li>
         </ul>
-        <div class="more">加载更多</div>
+        <div class="more" @click="loadmore" v-if="loading == 0">加载更多</div>
+        <div class="more" v-else-if="loading == 1">加载中···</div>
+        <div class="more" v-else>没有更多了</div>
       </div>
 
       <!-- 侧边栏 -->
@@ -178,7 +180,13 @@ var dayjs = require('dayjs')
 
 export default {
   name: 'MatrixPageIndex',
-
+  data() {
+    return {
+      offset: 0,
+      limit: 10,
+      loading: 0
+    }
+  },
   mounted() {
     // vue生命周期，页面DOM挂载完成后触发该函数
     this.getMatricList()
@@ -188,8 +196,23 @@ export default {
   },
 
   methods: {
+    async loadmore() {
+      // let top = window.pageYOffset
+      // console.log(top);
+      // this.offset += 20
+      this.limit += 10
+      if (this.limit > 41) {
+        this.loading = 2
+      } else {
+        this.loading = 1
+        // console.log(this.offset);
+        await this.$store.dispatch('getMatricList', {limit: this.limit, offset: this.offset})
+        // window.scrollBy(top,0); // 控制滚动条位置
+        this.loading = 0
+      }
+    },
     getMatricList() {
-      this.$store.dispatch('getMatricList') // 触发getMatricList
+      this.$store.dispatch('getMatricList', {limit: this.limit, offset: 0}) // 触发getMatricList
     },
     getMatricYipai() {
       this.$store.dispatch('getMatricYipai') // 触发getMatricList

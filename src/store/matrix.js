@@ -30,8 +30,8 @@ const mutations = {
 
 const actions = {
   //异步请求获取数据  允许if  for  异步操作
-  async getMatricList({ commit }) {
-    const result = await reqMatricList();
+  async getMatricList({ commit }, {limit, offset}) {
+    const result = await reqMatricList(limit, offset);
     if (result.error === 0) {
       commit("RECEIVEMATRICLIST", result.data);
     }
